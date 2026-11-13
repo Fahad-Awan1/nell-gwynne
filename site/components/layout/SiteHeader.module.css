@@ -1,0 +1,217 @@
+.hdr {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  height: var(--header-h);
+  transition: background 0.35s var(--ease), height 0.35s var(--ease), box-shadow 0.35s;
+}
+.scrolled {
+  background: rgba(6, 1, 1, 0.92);
+  backdrop-filter: blur(10px);
+  height: 74px;
+  box-shadow: 0 1px 0 rgba(137, 89, 54, 0.35);
+}
+.inner {
+  height: 100%;
+  max-width: calc(var(--wrap) + var(--gutter) * 2 + 80px);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--parchment);
+}
+.mono {
+  font-size: 15px;
+  transition: transform 0.5s var(--ease);
+}
+.logo:hover .mono {
+  transform: rotate(-12deg);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+.item {
+  display: flex;
+  align-items: center;
+}
+.item a {
+  position: relative;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(243, 233, 220, 0.86);
+  transition: color 0.25s;
+}
+.item a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 1px;
+  height: 2px;
+  background: var(--copper);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease);
+}
+.item a:hover {
+  color: var(--parchment);
+}
+.item a:hover::after,
+.item a.active::after {
+  transform: scaleX(1);
+}
+.item a.active {
+  color: var(--parchment);
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  background: var(--copper);
+  transform: rotate(45deg);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.burger {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(137, 89, 54, 0.7);
+  background: transparent;
+  place-items: center;
+}
+.burger svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Mobile drawer: a sheet of paper sliding down */
+.drawer {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  z-index: -1;
+  background: var(--mahogany);
+  padding: calc(var(--header-h) + 30px) var(--gutter) 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transition: clip-path 0.6s var(--ease);
+  visibility: hidden;
+}
+.drawerOpen {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  visibility: visible;
+}
+.drawer nav {
+  display: flex;
+  flex-direction: column;
+}
+.drawer nav a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(137, 89, 54, 0.4);
+  font-family: var(--ff-display);
+  font-size: clamp(1.6rem, 7vw, 2.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+}
+.drawerOpen nav a {
+  opacity: 1;
+  transform: none;
+}
+.num {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--copper);
+}
+.drawerFoot {
+  display: grid;
+  gap: 12px;
+  color: rgba(243, 233, 220, 0.8);
+  font-size: 15px;
+}
+.drawerFoot > * {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.drawerFoot svg {
+  width: 18px;
+  height: 18px;
+  color: var(--copper);
+}
+
+@media (max-width: 1080px) {
+  .nav {
+    display: none;
+  }
+  .burger {
+    display: grid;
+  }
+}
+@media (min-width: 1081px) {
+  .drawer {
+    display: none;
+  }
+}
+@media (max-width: 520px) {
+  .book {
+    display: none !important;
+  }
+  .logo {
+    gap: 10px;
+  }
+  .mono {
+    font-size: 12px;
+  }
+}
+
+/* ---------- mobile pass ---------- */
+@media (max-width: 760px) {
+  .scrolled {
+    backdrop-filter: none;
+    background: rgba(6, 1, 1, 0.97);
+    height: 66px;
+  }
+}
+
+/* very small phones: keep logo + burger inside 320px */
+@media (max-width: 400px) {
+  .inner {
+    gap: 12px;
+  }
+  .logo :global(span[aria-label="Nell Gwynne"]) {
+    font-size: 16px;
+  }
+  .mono {
+    display: none;
+  }
+  .burger {
+    width: 42px;
+    height: 42px;
+    flex: none;
+  }
+}

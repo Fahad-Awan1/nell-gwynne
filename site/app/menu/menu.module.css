@@ -1,0 +1,98 @@
+.list {
+  padding-top: clamp(40px, 5vw, 70px);
+}
+.pdfHead {
+  margin-bottom: 50px;
+}
+.pdfGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.pdf {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  align-content: space-between;
+  min-height: 190px;
+  padding: 24px 22px;
+  background: var(--parchment);
+  color: var(--black);
+  box-shadow: 5px 5px 0 var(--copper), 0 20px 40px rgba(6, 1, 1, 0.45);
+  transition: rotate 0.4s var(--ease), translate 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.pdf::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(53, 18, 6, 0.2);
+  pointer-events: none;
+}
+.pdf:hover {
+  rotate: 0deg !important;
+  translate: -3px -5px;
+  box-shadow: 8px 10px 0 var(--copper), 0 28px 50px rgba(6, 1, 1, 0.5);
+}
+.pdfNum {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  color: var(--copper);
+}
+.pdfTitle {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.pdfMeta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--mahogany);
+}
+.pdfMeta svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 980px) {
+  .pdfGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- mobile pass ---------- */
+@media (max-width: 760px) {
+  .pdfHead {
+    margin-bottom: 28px;
+  }
+  .pdfGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+  .pdf {
+    min-height: 0;
+    gap: 10px;
+    padding: 16px 14px;
+    box-shadow: 3px 3px 0 var(--copper), 0 12px 24px rgba(6, 1, 1, 0.4);
+  }
+  .pdfTitle {
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    overflow-wrap: anywhere;
+  }
+  .pdfMeta {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .pdfTitle {
+    font-size: 0.8rem;
+  }
+}

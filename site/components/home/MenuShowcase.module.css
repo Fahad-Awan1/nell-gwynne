@@ -1,0 +1,249 @@
+.menu {
+  overflow-x: clip;
+  padding-top: calc(var(--section-y) + 30px);
+}
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: clamp(40px, 6vw, 90px);
+  align-items: center;
+}
+.copy {
+  position: relative;
+}
+.copy :global(.lede) {
+  margin-top: 22px;
+}
+.note {
+  left: 52%;
+  bottom: -90px;
+}
+
+.collage {
+  position: relative;
+  height: 560px;
+}
+.clip {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  z-index: 2;
+  width: 46%;
+  padding: 26px 22px 22px;
+  background: var(--parchment);
+  color: var(--black);
+  display: grid;
+  gap: 10px;
+  rotate: -5deg;
+  box-shadow: 0 20px 40px rgba(6, 1, 1, 0.5);
+  clip-path: polygon(0 2%, 8% 0, 20% 1.5%, 34% 0, 50% 2%, 66% 0, 80% 1.5%, 92% 0, 100% 2%, 99% 30%, 100% 60%, 98.5% 100%, 84% 98%, 68% 100%, 52% 98.5%, 36% 100%, 20% 98%, 6% 100%, 0 98%, 1% 70%, 0 40%);
+}
+.clipKicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.clipHead {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.clipRule {
+  height: 3px;
+  border-block: 1px solid var(--black);
+}
+.clipBody {
+  font-size: 13.5px;
+  color: rgba(6, 1, 1, 0.75);
+}
+.pA {
+  position: absolute;
+  right: 4%;
+  top: 0;
+  width: 58%;
+  aspect-ratio: 0.88;
+  rotate: 4deg;
+  z-index: 1;
+}
+.pB {
+  position: absolute;
+  left: 18%;
+  bottom: 0;
+  width: 42%;
+  aspect-ratio: 0.86;
+  rotate: -5deg;
+  z-index: 3;
+}
+.pA img,
+.pB img {
+  height: 100%;
+}
+
+/* carousel */
+.carousel {
+  margin-top: clamp(80px, 9vw, 130px);
+}
+.track {
+  display: flex;
+  gap: 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  padding: 30px max(var(--gutter), calc((100vw - var(--wrap)) / 2)) 40px;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+}
+.track::-webkit-scrollbar {
+  display: none;
+}
+.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+.card {
+  flex: 0 0 clamp(240px, 24vw, 300px);
+  scroll-snap-align: start;
+  background: var(--parchment);
+  color: var(--black);
+  padding: 12px 12px 0;
+  box-shadow: 0 22px 40px rgba(6, 1, 1, 0.55);
+  transition: rotate 0.5s var(--ease), translate 0.5s var(--ease);
+}
+.card:hover {
+  rotate: 0deg !important;
+  translate: 0 -8px;
+}
+.cardImg {
+  aspect-ratio: 1.15;
+  overflow: hidden;
+}
+.cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 0.8s var(--ease);
+}
+.card:hover .cardImg img {
+  transform: scale(1.06);
+}
+.cardCap {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 10px;
+  padding: 16px 4px 18px;
+}
+.idx {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--copper);
+}
+.name {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.price {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--mahogany);
+  white-space: nowrap;
+}
+.ctrls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+.nav {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1px solid var(--copper);
+  background: var(--black);
+  color: var(--parchment);
+  display: grid;
+  place-items: center;
+  transition: background 0.3s, transform 0.3s var(--ease), opacity 0.3s;
+}
+.nav svg {
+  width: 20px;
+  height: 20px;
+}
+.nav:hover:not(:disabled) {
+  background: var(--copper);
+  transform: scale(1.06);
+}
+.nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.hint {
+  font-size: 11.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgba(243, 233, 220, 0.5);
+}
+
+@media (max-width: 980px) {
+  .top {
+    grid-template-columns: 1fr;
+  }
+  .note {
+    display: none;
+  }
+  .collage {
+    height: 480px;
+    max-width: 600px;
+  }
+}
+@media (max-width: 560px) {
+  .collage {
+    height: 380px;
+  }
+  .clip {
+    width: 56%;
+    top: 10px;
+  }
+  .hint {
+    display: none;
+  }
+}
+
+/* ---------- mobile pass ---------- */
+@media (max-width: 760px) {
+  .menu {
+    padding-top: var(--section-y);
+  }
+  .collage {
+    height: 340px;
+    margin-top: 10px;
+  }
+  .carousel {
+    margin-top: 36px;
+  }
+  .track {
+    gap: 18px;
+    padding-top: 16px;
+    padding-bottom: 26px;
+  }
+  .card {
+    flex-basis: 72%;
+  }
+  .nav {
+    width: 46px;
+    height: 46px;
+  }
+}

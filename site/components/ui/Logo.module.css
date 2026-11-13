@@ -1,0 +1,54 @@
+.word {
+  display: inline-block;
+  font-family: var(--ff-display);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  color: currentColor;
+}
+.cap,
+.capE {
+  font-size: 1.55em;
+  vertical-align: -0.04em;
+}
+.capE {
+  font-size: 1.35em;
+}
+.raised {
+  font-size: 1em;
+  vertical-align: 0.42em;
+  letter-spacing: 0.06em;
+}
+.gap {
+  display: inline-block;
+  width: 0.55em;
+}
+.sm {
+  font-size: 15px;
+}
+.md {
+  font-size: 19px;
+}
+.lg {
+  font-size: clamp(28px, 4vw, 44px);
+}
+.xl {
+  font-size: clamp(44px, 10.2vw, 160px);
+}
+
+.mono {
+  display: inline-grid;
+  place-items: center;
+  font-family: var(--ff-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+.ring {
+  width: 2.6em;
+  height: 2.6em;
+  border-radius: 50%;
+  border: 1px solid var(--copper);
+  color: var(--copper);
+}

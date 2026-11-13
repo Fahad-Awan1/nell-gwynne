@@ -1,0 +1,171 @@
+.planner {
+  background: var(--black);
+  color: var(--parchment);
+  box-shadow: 8px 8px 0 var(--copper), 0 30px 60px rgba(6, 1, 1, 0.3);
+  rotate: -0.8deg;
+}
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 3px double rgba(137, 89, 54, 0.6);
+}
+.tab {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 18px 4px 16px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(137, 89, 54, 0.3);
+  color: rgba(243, 233, 220, 0.6);
+  transition: background 0.25s, color 0.25s;
+}
+.tab:last-child {
+  border-right: 0;
+}
+.tab:hover {
+  color: var(--parchment);
+  background: rgba(137, 89, 54, 0.12);
+}
+.on {
+  background: var(--copper) !important;
+  color: var(--parchment);
+}
+.short {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.today {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.panel {
+  padding: clamp(24px, 4vw, 44px);
+}
+.dayHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.dayName {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+}
+.open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--copper);
+  white-space: nowrap;
+}
+.open svg {
+  width: 16px;
+  height: 16px;
+}
+.rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.row {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px dashed rgba(137, 89, 54, 0.4);
+}
+.time {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+.what {
+  display: grid;
+  gap: 2px;
+}
+.what strong {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.what span {
+  font-size: 15px;
+  color: rgba(243, 233, 220, 0.7);
+}
+.price {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 7px 12px;
+  background: var(--parchment);
+  color: var(--black);
+  white-space: nowrap;
+  rotate: 2deg;
+}
+.every {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 26px;
+  margin-top: 22px;
+  font-size: 14.5px;
+  color: rgba(243, 233, 220, 0.8);
+}
+.everyLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border: 1px solid var(--copper);
+  color: var(--copper);
+}
+.everyItem em {
+  font-style: normal;
+  color: var(--copper);
+}
+
+@media (max-width: 620px) {
+  .planner {
+    rotate: 0deg;
+  }
+  .short {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .today {
+    font-size: 8px;
+    letter-spacing: 0.1em;
+  }
+  .row {
+    grid-template-columns: 1fr auto;
+  }
+  .time {
+    grid-column: 1 / -1;
+  }
+  .dayHead {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

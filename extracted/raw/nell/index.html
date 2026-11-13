@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nell Gwynne Digital Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="brand">
+       
+        <h1><span class="light">Nell</span> <span class="accent">Gwynne</span></h1>
+      </div>
+      <p class="tagline">Your Go To English Sports Bar Based In Dubai Marina</p>
+      <div class="search-wrap">
+        <input id="searchInput" type="search" placeholder="Search menu items..." autocomplete="off"/>
+      </div>
+      <nav class="category-nav" id="categoryNav">
+        <button class="chip active" data-category="all">
+          <span class="icon">▧</span> All Items
+        </button>
+        <button class="chip" data-category="starters">Starters</button>
+        <button class="chip" data-category="salads">Salads/Sides</button>
+        <button class="chip" data-category="main">Main Course</button>
+        <button class="chip" data-category="desserts">Desserts</button>
+        <button class="chip" data-category="drinks">Drinks</button>
+        <button class="chip" data-category="offers">⚙️ Special Offers</button>
+
+        <div class="dropdown">
+          <button class="chip dropdown-toggle" id="specialMenusBtn">🍔 Menus ▾</button>
+          <div class="dropdown-menu" id="specialMenusMenu" aria-labelledby="specialMenusBtn">
+
+            
+            <!-- Links populated by JS - editable in script.js under SPECIAL_MENUS_LINKS -->
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container content">
+    <div class="section-header">
+      <h2 id="sectionTitle">All Items</h2>
+      <div class="count"><span id="itemCount">0</span> items</div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <template id="menuCardTpl">
+    <article class="card">
+      <div class="thumb-wrap">
+        <img class="thumb" alt="">
+        <span class="badge badge-offer" hidden>Special Offer</span>
+        <span class="badge badge-chef" hidden>Chef's Special</span>
+      </div>
+      <div class="card-body">
+        <div class="title-row">
+          <h3 class="title"></h3>
+          <div class="price"></div>
+        </div>
+        <p class="desc"></p>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+.tl {
+  position: relative;
+  list-style: none;
+  margin: 0 auto;
+  padding: 20px 0;
+  max-width: 1000px;
+}
+.tl::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(137, 89, 54, 0.25);
+}
+.spine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -0.5px;
+  background: var(--copper);
+  transform-origin: top;
+}
+.entry {
+  position: relative;
+  width: 50%;
+  padding: 0 56px 64px;
+}
+.entry:last-child {
+  padding-bottom: 0;
+}
+.left {
+  margin-right: 50%;
+  text-align: right;
+}
+.right {
+  margin-left: 50%;
+}
+.dot {
+  position: absolute;
+  top: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--black);
+  border: 2px solid var(--copper);
+  box-shadow: 0 0 0 6px var(--black);
+}
+.left .dot {
+  right: -9px;
+}
+.right .dot {
+  left: -9px;
+}
+.card {
+  display: grid;
+  gap: 10px;
+}
+.year {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1;
+  color: var(--copper);
+}
+.card p {
+  margin: 0;
+  color: rgba(243, 233, 220, 0.72);
+}
+
+@media (max-width: 760px) {
+  .tl::before,
+  .spine {
+    left: 9px;
+  }
+  .entry,
+  .left,
+  .right {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    padding: 0 0 48px 44px;
+  }
+  .left .dot,
+  .right .dot {
+    left: 0;
+    right: auto;
+  }
+}
