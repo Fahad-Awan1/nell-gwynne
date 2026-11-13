@@ -45,4 +45,6 @@ All copy lives in two files. Change them and every page updates.
 
 ## Deploy
 
-On Vercel, set the project's **Root Directory** to `site`.
+The site is hosted on Vercel at https://nell-gwynne.vercel.app. The Vercel project's **Root Directory** is set to `site`.
+
+**Auto-deploy:** every push to `main` builds and publishes the site automatically. Pushes to other branches get their own preview URL.
