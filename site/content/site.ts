@@ -147,14 +147,16 @@ export const SCHEDULE: ScheduleDay[] = [
     short: "Wed",
     items: [
       { time: "12pm – 12am", title: "Wednesday Pie Night", detail: "Buy 1 get 1 offer.", price: "AED 99" },
-      { time: "12pm – 12am", title: "Bangers & Mash", detail: "Buy 1 get 1 offer.", price: "AED 99" },
       { time: "8pm – 12am", title: "Ladies Night", detail: "50% off all selected food items · AED 20 selected house spirits, wines & frozen cocktails." },
     ],
   },
   {
     day: "Thursday",
     short: "Thu",
-    items: [{ time: "All day", title: "Match Night", detail: "European football and big fixtures on every screen." }],
+    items: [
+      { time: "12pm – 12am", title: "Bangers & Mash", detail: "Buy 1 get 1 offer.", price: "AED 99" },
+      { time: "All day", title: "Match Night", detail: "European football and big fixtures on every screen." },
+    ],
   },
   {
     day: "Friday",
@@ -216,7 +218,7 @@ export const EVENTS = [
       { name: "Single Portion", price: "AED 99", detail: "Served at the venue" },
       { name: "Whole Turkey", price: "AED 550", detail: "Pre-order 24 hours ahead" },
     ],
-    image: "/images/menu/sunday-roast.webp",
+    image: "/images/menu/sunday-roast-wide.webp",
   },
   {
     title: "New Year’s Eve",

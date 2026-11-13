@@ -568,7 +568,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/lunch-time.webp"
+      "image": "/images/menu/lunch-time-wide.webp"
     },
     {
       "id": 47,
@@ -579,7 +579,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/weekend-breakfast.webp"
+      "image": "/images/menu/weekend-breakfast-wide.webp"
     },
     {
       "id": 48,
@@ -590,7 +590,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/wings-night.webp"
+      "image": "/images/menu/wings-night-wide.webp"
     },
     {
       "id": 49,
@@ -601,7 +601,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/sunday-roast.webp"
+      "image": "/images/menu/sunday-roast-wide.webp"
     },
     {
       "id": 50,
@@ -612,7 +612,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/monday-taco-night.webp"
+      "image": "/images/menu/monday-taco-night-wide.webp"
     },
     {
       "id": 51,
@@ -623,7 +623,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/tuesday-wings-night.webp"
+      "image": "/images/menu/tuesday-wings-night-wide.webp"
     },
     {
       "id": 52,
@@ -634,7 +634,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/wednesday-pie-night.webp"
+      "image": "/images/menu/wednesday-pie-night-wide.webp"
     },
     {
       "id": 53,
@@ -645,7 +645,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/bangers-mash.webp"
+      "image": "/images/menu/bangers-mash-wide.webp"
     },
     {
       "id": 54,
@@ -656,7 +656,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/pork-back-ribs.webp"
+      "image": "/images/menu/pork-back-ribs-wide.webp"
     },
     {
       "id": 55,
@@ -667,7 +667,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/saturday-roast-brunch.webp"
+      "image": "/images/menu/saturday-roast-brunch-wide.webp"
     },
     {
       "id": 56,
@@ -678,7 +678,7 @@
       "category": "offers",
       "allergens": [],
       "tags": [],
-      "image": "/images/menu/saturday-roast-brunch-2.webp"
+      "image": "/images/menu/saturday-roast-brunch-2-wide.webp"
     },
     {
       "id": 57,

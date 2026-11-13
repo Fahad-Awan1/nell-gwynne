@@ -103,7 +103,7 @@ export function OffersWall() {
           </p>
         </div>
 
-        <AutoSwipe className={s.posters} data-reveal="stagger" interval={800}>
+        <AutoSwipe className={s.posters} data-reveal="stagger" interval={1200}>
           {OFFERS.map((o, i) => (
             <Link key={o.slug} href={`/special-offers#${o.slug}`} className={s.poster} style={{ rotate: `${[-2.5, 1.5, -1, 2, -1.8, 1.2][i % 6]}deg` }}>
               <div className={s.posterImg}>

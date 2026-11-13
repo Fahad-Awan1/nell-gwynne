@@ -150,7 +150,7 @@ function Card({ it, i }: { it: Item; i: number }) {
   return (
     <article id={it.slug} className={`${s.card} ${offer ? s.offer : ""}`} data-card style={{ rotate: `${[-1.2, 0.8, -0.5, 1.1, -0.9][i % 5]}deg` }}>
       <div className={s.img}>
-        {it.image && <Image src={it.image} alt={it.name} width={600} height={600} sizes="(max-width: 620px) 90vw, (max-width: 1080px) 45vw, 300px" />}
+        {it.image && <Image src={it.image} alt={it.name} width={600} height={600} sizes="(max-width: 520px) 46vw, (max-width: 1080px) 45vw, 300px" />}
         <span className={s.price}>AED {it.price}</span>
         {offer && <span className={s.flag}>Special Offer</span>}
       </div>

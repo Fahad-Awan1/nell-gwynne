@@ -25,6 +25,7 @@ This file lists where every piece of content on the new site came from:
 | 8 PDF menus | `/nell/` "Menus" dropdown |
 | Weekly schedule: Taco Monday, Wings Tuesday, Pie Wednesday, Bangers & Mash, Friday ribs, Saturday brunch, Saturday wings, Sunday roast, weekend breakfast, lunch time | `/nell/` "Special Offers" items |
 | Ladies Night: Sun–Wed, 8pm–12am, 50% off selected food, AED 20 drinks | Ladies Night PDF |
+| Bangers & Mash on Thursday | The offer's own poster on the old `/nell/` menu ("Thursday · Bangers & Mash · Buy 1 Get 1") |
 | Quiz Night: Mondays from 7pm; Tuesday board games / live music | Instagram captions |
 | Christmas Day packages (Silver/Gold/Platinum), Festive Roast Turkey (AED 99 / AED 550) | Instagram captions |
 | Boxing Day packages (3-course AED 145, 2 hours drinks AED 249) | Popup poster |
@@ -78,7 +79,6 @@ This file lists where every piece of content on the new site came from:
 **Offers and events**
 
 - **Thursday "Match Night"** in the weekly planner. The old site had no Thursday offer.
-- **Bangers & Mash** is placed on Wednesday. The old menu lists the offer but not its day.
 - **Event descriptions:**
   - Boxing Day line "Recover in style with a proper British spread…".
   - The Boxing Day package details "Starter, main & pudding" and "Selected house beverages".
