@@ -13,6 +13,7 @@ type Item = (typeof menu.items)[number];
 const ALLERGEN_CODE: Record<string, string> = { Gluten: "G", Dairy: "D", Egg: "E", "Seafood/Shellfish": "S" };
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 export default function MenuGrid() {
   const [cat, setCat] = useState<string>("all");

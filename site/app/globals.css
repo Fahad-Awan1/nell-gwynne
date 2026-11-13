@@ -385,6 +385,7 @@ button {
 /* zero-specificity position, so a component's own absolute placement always wins regardless of CSS load order */
 :where(.print) {
   position: relative;
+  min-width: 0;
 }
 .print {
   background: var(--parchment);

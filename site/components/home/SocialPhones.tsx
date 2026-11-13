@@ -27,7 +27,7 @@ export default function SocialPhones() {
 
   useEffect(() => {
     if (paused || !onScreen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setInterval(() => setActive((a) => (a + 1) % n), 4200);
+    const t = window.setInterval(() => setActive((a) => (a + 1) % n), 3000);
     return () => window.clearInterval(t);
   }, [paused, onScreen, n]);
 

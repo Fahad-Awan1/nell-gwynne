@@ -7,6 +7,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { keepTilt } from "./keepTilt";
 
 gsap.registerPlugin(ScrollTrigger);
+// Mobile address bars show/hide while scrolling and resize the viewport; without this every
+// show/hide triggers a full ScrollTrigger refresh, which makes sticky bars visibly jump.
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 /**
  * One motion engine for the whole site. Server components opt in with data attributes:

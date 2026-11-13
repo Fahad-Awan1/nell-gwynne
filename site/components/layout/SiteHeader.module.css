@@ -191,6 +191,11 @@
 
 /* ---------- mobile pass ---------- */
 @media (max-width: 760px) {
+  /* fixed height on phones: an animating header height made the sticky menu bar below it wobble */
+  .hdr {
+    height: 66px;
+    transition: background 0.3s var(--ease), box-shadow 0.3s;
+  }
   .scrolled {
     backdrop-filter: none;
     background: rgba(6, 1, 1, 0.97);
@@ -203,10 +208,11 @@
   .inner {
     gap: 12px;
   }
-  .logo :global(span[aria-label="Nell Gwynne"]) {
-    font-size: 16px;
+  /* doubled selectors so these win over the Logo component's own styles regardless of CSS order */
+  .logo.logo :global(span[aria-label="Nell Gwynne"]) {
+    font-size: 15px;
   }
-  .mono {
+  .logo.logo .mono {
     display: none;
   }
   .burger {

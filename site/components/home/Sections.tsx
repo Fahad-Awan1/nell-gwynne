@@ -4,6 +4,7 @@ import { OFFERS, SITE, STATS, TESTIMONIALS } from "@/content/site";
 import { Btn, Eyebrow, Rule, Watermark, Note } from "@/components/ui/bits";
 import Icon from "@/components/ui/Icon";
 import TornEdge from "@/components/paper/TornEdge";
+import AutoSwipe from "@/components/ui/AutoSwipe";
 import { Monogram } from "@/components/ui/Logo";
 import s from "./Sections.module.css";
 
@@ -102,7 +103,7 @@ export function OffersWall() {
           </p>
         </div>
 
-        <div className={s.posters} data-reveal="stagger">
+        <AutoSwipe className={s.posters} data-reveal="stagger" interval={800}>
           {OFFERS.map((o, i) => (
             <Link key={o.slug} href={`/special-offers#${o.slug}`} className={s.poster} style={{ rotate: `${[-2.5, 1.5, -1, 2, -1.8, 1.2][i % 6]}deg` }}>
               <div className={s.posterImg}>
@@ -123,7 +124,7 @@ export function OffersWall() {
               </div>
             </Link>
           ))}
-        </div>
+        </AutoSwipe>
         <div className={s.center} data-reveal="up">
           <Btn href="/special-offers" variant="dark" icon="arrow">
             See the Full Week
@@ -172,7 +173,7 @@ export function Testimonials() {
             <span className="sub">What our guests are saying</span>
           </h2>
         </div>
-        <div className={s.notes}>
+        <AutoSwipe className={s.notes} interval={1000}>
           {TESTIMONIALS.map((t, i) => (
             <figure key={t.name} className={s.review} data-reveal="news" data-rot={i % 2 ? "4" : "-4"} data-delay={(i * 0.08).toFixed(2)} style={{ rotate: `${[-2, 1.5, -1, 2.2][i]}deg` }}>
               <span className={s.pin} aria-hidden="true" />
@@ -191,7 +192,7 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </AutoSwipe>
       </div>
     </section>
   );
