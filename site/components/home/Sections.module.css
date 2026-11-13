@@ -151,7 +151,7 @@
   top: 12px;
   background: var(--parchment);
   color: var(--black);
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.08em;
@@ -303,7 +303,7 @@
 }
 .review figcaption strong {
   display: block;
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   letter-spacing: 0.06em;
   font-size: 15px;
 }

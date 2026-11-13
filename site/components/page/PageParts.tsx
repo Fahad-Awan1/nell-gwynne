@@ -7,7 +7,7 @@ import s from "./PageParts.module.css";
 
 type HeroImg = { src: string; alt: string; caption?: string };
 
-/** Inner-page hero: dark textured band, big Cinzel title, optional photo prints (MH sub-page heroes). */
+/** Inner-page hero: dark textured band, big Gemola title, optional photo prints (MH sub-page heroes). */
 export function PageHero({
   eyebrow,
   title,

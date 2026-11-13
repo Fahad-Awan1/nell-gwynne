@@ -140,13 +140,13 @@
   padding: 16px 4px 18px;
 }
 .idx {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 700;
   font-size: 13px;
   color: var(--copper);
 }
 .name {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 0.08em;

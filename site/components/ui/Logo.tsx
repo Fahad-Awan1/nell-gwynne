@@ -1,6 +1,6 @@
 import styles from "./Logo.module.css";
 
-/** "NELL GWYNNE" wordmark: Cinzel with oversized N / G capitals, as in the brand asset. */
+/** "NELL GWYNNE" wordmark: Gemola with oversized N / G capitals, as in the brand asset. */
 export function Wordmark({ className = "", size = "md" }: { className?: string; size?: "sm" | "md" | "lg" | "xl" }) {
   return (
     <span className={`${styles.word} ${styles[size]} ${className}`} aria-label="Nell Gwynne">

@@ -85,7 +85,7 @@
 }
 .note {
   position: absolute;
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 13px;

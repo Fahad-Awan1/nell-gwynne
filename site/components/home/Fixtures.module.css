@@ -42,7 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-size: 15px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -126,7 +126,7 @@
   white-space: nowrap;
 }
 .teams {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 600;
   letter-spacing: 0.04em;
   font-size: 15.5px;

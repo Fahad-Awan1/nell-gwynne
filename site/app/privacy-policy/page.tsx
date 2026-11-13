@@ -50,7 +50,7 @@ export default function PrivacyPage() {
         <h2>Your rights</h2>
         <p>
           You can ask us what information we hold about you, ask us to correct it, or ask us to delete it. Contact us on{" "}
-          <a href={SITE.phoneHref}>{SITE.phone}</a> or via <a href={SITE.whatsapp}>WhatsApp</a>.
+          <a href={SITE.phoneHref}>{SITE.phone}</a> or via <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>.
         </p>
         <h2>Changes</h2>
         <p>We may update this policy from time to time. The date at the top shows when it last changed.</p>

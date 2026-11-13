@@ -33,7 +33,7 @@
   color: var(--parchment);
 }
 .short {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.14em;
@@ -114,7 +114,7 @@
   color: rgba(243, 233, 220, 0.7);
 }
 .price {
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 700;
   font-size: 14px;
   padding: 7px 12px;

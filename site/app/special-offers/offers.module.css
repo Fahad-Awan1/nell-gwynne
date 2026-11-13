@@ -171,7 +171,7 @@
 }
 .packages strong {
   display: block;
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -221,7 +221,7 @@
 .blendBar span {
   display: grid;
   place-items: center;
-  font-family: var(--ff-display);
+  font-family: var(--ff-body);
   font-weight: 700;
   font-size: 15px;
   color: var(--parchment);

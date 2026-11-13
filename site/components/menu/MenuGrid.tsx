@@ -15,19 +15,48 @@ const ALLERGEN_CODE: Record<string, string> = { Gluten: "G", Dairy: "D", Egg: "E
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
 
+const CAT_LABEL: Record<string, string> = Object.fromEntries(menu.categories.map((c) => [c.id, c.label]));
+
+/** Lower-case, strip accents and punctuation, so "shepherds" finds "Shepherd’s" and "jalapeno" finds "jalapeño". */
+function normalize(text: string) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/[’'`]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+// Search text for every item, built once: name, description, category, tags and allergens.
+const HAYSTACK = new Map(
+  menu.items.map((i) => [i.slug, normalize([i.name, i.description, CAT_LABEL[i.category], ...i.tags, ...i.allergens].join(" "))]),
+);
+
+/** Every word of the query must appear somewhere in the item ("pork ribs" finds "BBQ Pork Baby Back Ribs"). */
+function matches(item: Item, words: string[]) {
+  const hay = HAYSTACK.get(item.slug) ?? "";
+  return words.every((w) => hay.includes(w));
+}
+
 export default function MenuGrid() {
   const [cat, setCat] = useState<string>("all");
   const [query, setQuery] = useState("");
-  const q = useDeferredValue(query.trim().toLowerCase());
+  const q = useDeferredValue(normalize(query));
   const grid = useRef<HTMLDivElement>(null);
   const prevKey = useRef("all|");
+  const prevCat = useRef("all");
 
+  const words = useMemo(() => (q ? q.split(" ") : []), [q]);
   const filtered = useMemo(
-    () =>
-      menu.items.filter(
-        (i) => (cat === "all" || i.category === cat) && (!q || `${i.name} ${i.description}`.toLowerCase().includes(q)),
-      ),
-    [cat, q],
+    () => menu.items.filter((i) => (cat === "all" || i.category === cat) && (!words.length || matches(i, words))),
+    [cat, words],
+  );
+  // how many matches exist in other categories (offered when the current category has none)
+  const elsewhere = useMemo(
+    () => (words.length && cat !== "all" ? menu.items.filter((i) => matches(i, words)).length : 0),
+    [cat, words],
   );
 
   const groups = useMemo(() => {
@@ -44,9 +73,12 @@ export default function MenuGrid() {
     prevKey.current = `${cat}|${q}`;
 
     // after a filter change, bring the top of the list back under the sticky bar
+    // (smooth for a category tap, instant while typing so the page doesn't lurch on every key)
     if (changed) {
+      const catChanged = prevCat.current !== cat;
+      prevCat.current = cat;
       const top = el.getBoundingClientRect().top + window.scrollY - 150;
-      if (window.scrollY > top) window.scrollTo({ top, behavior: "smooth" });
+      if (window.scrollY > top) window.scrollTo({ top, behavior: catChanged ? "smooth" : "auto" });
     }
 
     const ctx = gsap.context(() => {
@@ -96,7 +128,18 @@ export default function MenuGrid() {
           <label className={s.search}>
             <Icon name="search" />
             <span className="sr-only">Search the menu</span>
-            <input type="search" placeholder="Search dishes & drinks…" value={query} onChange={(e) => setQuery(e.target.value)} />
+            <input
+              type="search"
+              placeholder="Search dishes & drinks…"
+              value={query}
+              enterKeyHint="search"
+              autoComplete="off"
+              onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Escape") setQuery("");
+                if (e.key === "Enter") (e.target as HTMLInputElement).blur();
+              }}
+            />
           </label>
         </div>
       </div>
@@ -110,10 +153,27 @@ export default function MenuGrid() {
         {filtered.length === 0 && (
           <div className={s.empty}>
             <p className="h3">Nothing on tap for that one.</p>
-            <p>Try another word, or ask the bar. We might just make it for you.</p>
-            <button className="btn btn--dark btn--sm" onClick={() => { setQuery(""); setCat("all"); }}>
-              <span>Show everything</span>
-            </button>
+            <p>
+              {elsewhere > 0
+                ? `No match in ${CAT_LABEL[cat] ?? "this category"}, but ${elsewhere} ${elsewhere === 1 ? "item matches" : "items match"} in the rest of the menu.`
+                : "Try another word, or ask the bar. We might just make it for you."}
+            </p>
+            <div className={s.emptyBtns}>
+              {elsewhere > 0 && (
+                <button className="btn btn--sm" onClick={() => setCat("all")}>
+                  <span>Search all categories</span>
+                </button>
+              )}
+              <button
+                className="btn btn--dark btn--sm"
+                onClick={() => {
+                  setQuery("");
+                  setCat("all");
+                }}
+              >
+                <span>Show everything</span>
+              </button>
+            </div>
           </div>
         )}
 

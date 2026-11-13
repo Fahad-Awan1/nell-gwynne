@@ -1,27 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Cinzel } from "next/font/google";
 import localFont from "next/font/local";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
-const cinzel = Cinzel({
-  variable: "--font-cinzel",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
+// Headings: Gemola (display serif, single weight). Local file; free for personal / non-commercial
+// use only, so a commercial licence is needed before this goes live for the real pub.
+const gemola = localFont({
+  variable: "--font-gemola",
+  src: [{ path: "./fonts/gemola.woff", weight: "400", style: "normal" }],
+  adjustFontFallback: false,
+  fallback: ["Baskerville", "Georgia", "serif"],
+  display: "swap",
 });
 
-const sauce = localFont({
-  variable: "--font-sauce",
+// Body: Baskervville, installed from npm (@fontsource/baskervville) and self-hosted by Next.
+// Turbopack can't read these woff2 metrics ("unexpected data version"), so no auto fallback.
+const baskervville = localFont({
+  variable: "--font-baskervville",
   src: [
-    { path: "./fonts/open-sauce-sans-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/open-sauce-sans-latin-600-normal.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/open-sauce-sans-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "../node_modules/@fontsource/baskervville/files/baskervville-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../node_modules/@fontsource/baskervville/files/baskervville-latin-400-italic.woff2", weight: "400", style: "italic" },
+    { path: "../node_modules/@fontsource/baskervville/files/baskervville-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "../node_modules/@fontsource/baskervville/files/baskervville-latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
-  // Turbopack can't parse these woff2 metrics ("unexpected data version"), so skip the auto fallback.
   adjustFontFallback: false,
-  fallback: ["system-ui", "-apple-system", "Segoe UI", "sans-serif"],
+  fallback: ["Baskerville", "Baskerville Old Face", "Georgia", "serif"],
   display: "swap",
 });
 
@@ -76,7 +81,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-GB" id="top" className={`${cinzel.variable} ${sauce.variable}`} suppressHydrationWarning>
+    <html lang="en-GB" id="top" className={`${gemola.variable} ${baskervville.variable}`} suppressHydrationWarning>
       <head>
         {/* Hide reveal targets before first paint (only when motion is allowed). */}
         <script

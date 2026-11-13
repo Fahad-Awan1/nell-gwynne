@@ -3,7 +3,9 @@
 This is a full redesign of [nellgwynne.com](https://nellgwynne.com), an English sports pub in Dubai Marina. It is built with **Next.js 16** and **GSAP**, and uses the pub's brand system:
 
 - **Palette:** Pub Black `#060101`, Mahogany `#351206`, Copper Ale `#895936`, Parchment `#F3E9DC`.
-- **Fonts:** Cinzel and Open Sauce.
+- **Fonts:**
+  - **Gemola** for headings. It is a local file in `site/app/fonts/` and is free for personal/non-commercial use only, so a commercial licence is needed before the site goes live for the real pub.
+  - **Baskervville** for body text. It is installed from npm (`@fontsource/baskervville`).
 
 The design uses a "printed paper" style: torn-paper section edges, polaroid photo prints, stamps, printed buttons and scroll-driven reveals.
 
