@@ -25,11 +25,25 @@ export default function SocialPhones() {
     return () => io.disconnect();
   }, []);
 
+  // a video post stays in front for one full play (~10.5s); photo posts for 3s
   useEffect(() => {
     if (paused || !onScreen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setInterval(() => setActive((a) => (a + 1) % n), 3000);
-    return () => window.clearInterval(t);
-  }, [paused, onScreen, n]);
+    const t = window.setTimeout(() => setActive((a) => (a + 1) % n), SOCIAL_POSTS[active].video ? 10500 : 3000);
+    return () => window.clearTimeout(t);
+  }, [paused, onScreen, n, active]);
+
+  // play the reel only while it is the front phone and on screen; otherwise pause (saves data and battery)
+  const videos = useRef<(HTMLVideoElement | null)[]>([]);
+  useEffect(() => {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    videos.current.forEach((v, i) => {
+      if (!v) return;
+      if (i === active && onScreen && !reduce) {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      } else v.pause();
+    });
+  }, [active, onScreen]);
 
   // position of each phone relative to the active one: -2..2
   const offset = (i: number) => {
@@ -107,7 +121,23 @@ export default function SocialPhones() {
                     <Icon name="instagram" />
                   </span>
                   <span className={s.screen}>
-                    <Image src={p.image} alt="" width={600} height={800} sizes="260px" />
+                    {p.video ? (
+                      <video
+                        ref={(el) => {
+                          videos.current[i] = el;
+                        }}
+                        src={p.video}
+                        poster={p.image}
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        aria-label={p.caption}
+                      />
+                    ) : (
+                      <Image src={p.image} alt="" width={600} height={800} sizes="260px" />
+                    )}
+                    {p.video && <span className={s.reelTag}>Reel</span>}
                   </span>
                   <span className={s.caption}>{p.caption}</span>
                 </a>

@@ -285,8 +285,12 @@ export const TESTIMONIALS = [
   { name: "Ella M.", quote: "Service was quick, food was great, and the match atmosphere was unbeatable. Definitely the most authentic Dubai pub I’ve been to." },
 ];
 
-export const SOCIAL_POSTS = [
+export type SocialPost = { url: string; caption: string; image: string; video?: string };
+
+export const SOCIAL_POSTS: SocialPost[] = [
   { url: "https://www.instagram.com/p/DRhKWZxDHUq/", caption: "Introducing The Gentle Pour: 60% Guinness 0.0, 40% Guinness 4.2.", image: "/images/site/guinness-pour.webp" },
+  // venue reel supplied by the client (NELL VIDEO.mp4), reframed to 9:16 without cropping
+  { url: "https://www.instagram.com/nellgwynnemarina/", caption: "Live music, cocktails and match nights at Nell Gwynne.", image: "/video/nell-reel-poster.jpg", video: "/video/nell-reel.mp4" },
   { url: "https://www.instagram.com/p/DSInxawCcMZ/", caption: "Christmas Day just got better. Silver, Gold & Platinum packages.", image: "/images/site/event-christmas.webp" },
   { url: "https://www.instagram.com/p/DROUDkkkz6L/", caption: "Monday Quiz Night champions! Every Monday from 7pm.", image: "/images/site/offer-quiz-night.webp" },
   { url: "https://www.instagram.com/p/DSKZJoFjLS_/", caption: "True British vibes, great food, cold drinks and every match live.", image: "/images/site/pub-interior.webp" },

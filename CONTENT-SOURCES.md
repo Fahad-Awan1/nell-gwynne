@@ -33,6 +33,7 @@ This file lists where every piece of content on the new site came from:
 | The Gentle Pour (60% Guinness 0.0 / 40% Guinness 4.2) | Instagram caption |
 | Temporary entrance during the lobby renovation | Instagram reel |
 | Instagram bio facts: pool, darts, live entertainment | Instagram profile |
+| Venue reel in the home "Fresh from the Bar" phone (live band, cocktails) | `NELL VIDEO.mp4`, supplied by the client. It is reframed to 9:16 with a blurred fill and nothing is cropped. Its caption, "Live music, cocktails and match nights at Nell Gwynne.", is new. |
 | All photos and posters | Old site uploads and menu photos. The background texture is a collage made from these photos. |
 
 ## B. From the brand asset PDF
