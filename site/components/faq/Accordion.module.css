@@ -26,10 +26,11 @@
   color: var(--copper);
 }
 .text {
-  font-family: var(--ff-display);
+  /* questions in Baskervville: long uppercase lines in thin Gemola were hard to read */
+  font-family: var(--ff-body);
   font-weight: 600;
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-  letter-spacing: 0.04em;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   line-height: 1.3;
 }

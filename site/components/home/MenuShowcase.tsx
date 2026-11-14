@@ -131,8 +131,8 @@ export default function MenuShowcase() {
             <span className={s.clipBody}>Kitchen open from 9am · Breakfast at weekends</span>
           </div>
           <figure className={`print print--deckle ${s.pA}`} data-reveal="print" data-rot="6">
-            <Image src="/images/menu/grilled-pork-combo.webp" alt="Grilled pork combo sharing platter" width={600} height={600} sizes="(max-width: 760px) 60vw, 360px" />
-            <figcaption className="print__cap">Grilled Pork Combo</figcaption>
+            <Image src="/images/brand/pool-and-food.webp" alt="Pub food served by the pool table at Nell Gwynne" width={600} height={400} sizes="(max-width: 760px) 60vw, 380px" />
+            <figcaption className="print__cap">Pool, pints &amp; plates</figcaption>
           </figure>
           <figure className={`print ${s.pB}`} data-reveal="print" data-rot="-8" data-delay="0.15">
             <span className="tape" style={{ top: -12, left: 30, rotate: "-8deg" }} />

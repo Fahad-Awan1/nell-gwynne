@@ -118,6 +118,8 @@
 .drawerOpen {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   visibility: visible;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .drawer nav {
   display: flex;
@@ -209,8 +211,8 @@
     gap: 12px;
   }
   /* doubled selectors so these win over the Logo component's own styles regardless of CSS order */
-  .logo.logo :global(span[aria-label="Nell Gwynne"]) {
-    font-size: 15px;
+  .logo.logo img {
+    height: 20px;
   }
   .logo.logo .mono {
     display: none;

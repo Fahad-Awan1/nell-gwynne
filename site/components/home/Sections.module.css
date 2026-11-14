@@ -59,8 +59,8 @@
   position: absolute;
   right: 0;
   top: 0;
-  width: 40%;
-  aspect-ratio: 0.86;
+  width: 44%;
+  aspect-ratio: 1.3;
   rotate: 5deg;
   z-index: 3;
 }
@@ -240,7 +240,7 @@
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 
 /* ---------- Testimonials ---------- */
@@ -554,5 +554,42 @@
     top: 18px;
     font-size: 10.5px;
     padding: 8px 12px;
+  }
+}
+
+@media (max-width: 760px) {
+  .cA {
+    top: 30px;
+  }
+  .cStamp.cStamp {
+    left: -4px;
+    bottom: -18px;
+    width: 96px;
+  }
+  .cStamp :global(strong) {
+    font-size: 1.6rem;
+  }
+  .started {
+    top: -4px;
+  }
+  /* map shows a brand photo until Google Maps paints */
+}
+.mapWrap iframe {
+  background: url("/images/brand/bar-wide.webp") center / cover;
+}
+
+@media (max-width: 760px) {
+  .cC.cC {
+    bottom: -34px;
+  }
+  .collage {
+    margin-bottom: 40px;
+  }
+}
+
+/* phones: this photo sits behind another one, so its caption would be half covered; hide it */
+@media (max-width: 760px) {
+  .cA :global(.print__cap) {
+    display: none;
   }
 }

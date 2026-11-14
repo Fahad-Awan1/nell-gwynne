@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: SITE.fullName,
     locale: "en_GB",
-    images: ["/images/site/pub-interior.webp"],
+    images: ["/images/brand/match-crowd.webp"],
   },
   icons: { icon: "/icon.svg" },
 };
@@ -57,7 +57,7 @@ const jsonLd = {
   name: SITE.fullName,
   url: SITE.url,
   telephone: SITE.phone,
-  image: `${SITE.url}/images/site/pub-interior.webp`,
+  image: `${SITE.url}/images/brand/bar-interior.webp`,
   servesCuisine: "British",
   priceRange: "AED 30–200",
   acceptsReservations: SITE.booking,

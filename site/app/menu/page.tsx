@@ -25,8 +25,8 @@ export default function MenuPage() {
         lede="From the Full English to a proper Sunday roast, wings by the stack and cocktails with a British twist. Here’s everything coming out of our kitchen and bar."
         watermark="Menu"
         images={[
-          { src: "/images/menu/full-english-breakfast.webp", alt: "Full English breakfast", caption: "The Full English" },
-          { src: "/images/menu/traditional-cod-chips.webp", alt: "Traditional cod and chips", caption: "Cod & Chips" },
+          { src: "/images/brand/full-english.webp", alt: "A Full English breakfast", caption: "The Full English", w: 640, h: 427 },
+          { src: "/images/menu/traditional-cod-chips.webp", alt: "Traditional cod and chips", caption: "Cod & Chips", w: 900, h: 900 },
         ]}
       />
 

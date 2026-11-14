@@ -37,8 +37,15 @@ This file lists where every piece of content on the new site came from:
 
 ## B. From the brand asset PDF
 
-- Colours, fonts, logo style and icon style.
-- Tagline "An Authentic British Experience · Since 2011", and the year 2011.
+The PDF is `Nell Gwynne – Brand Asset .pdf`, supplied by the client.
+
+- **Logo:** the official "NELL GWYNNE" wordmark, both the light (on dark) and mahogany (on light) versions, used in the header and footer. Files: `site/public/images/brand/logo-*.png`.
+- **NG monogram:** used in the favicon, the reviews and the forms. It is drawn from the PDF's own glyph outlines.
+- **The five brand icons:** craft beer, live music, pub food, football, live sports.
+- **The six brand photographs:** bar interior, Full English, pint & burger, the bar, match-night crowd, pool table & food. Files: `site/public/images/brand/*.webp`.
+- **Colours:** the brand palette.
+- **Tagline:** "An Authentic British Experience · Since 2011", and the year 2011.
+- **Fonts:** headings now use Gemola and body text uses Baskervville, chosen by the client. These replace the PDF's Cinzel and Open Sauce.
 
 ## C. New additions (please review)
 

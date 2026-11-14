@@ -18,6 +18,9 @@
   --ink-soft: rgba(var(--parchment-rgb), 0.72);
   --ink-mute: rgba(var(--parchment-rgb), 0.5);
   --line: rgba(var(--copper-rgb), 0.45);
+  /* Copper for small text. On dark grounds plain Copper Ale is too dim to read, so it is mixed
+     with Parchment; on paper it is deepened with Mahogany. Both are mixes of brand colours. */
+  --copper-ink: color-mix(in srgb, var(--copper) 68%, var(--parchment));
 
   --ff-display: var(--font-gemola), "Baskerville", Georgia, serif;
   --ff-body: var(--font-baskervville), "Baskerville", "Baskerville Old Face", Georgia, serif;
@@ -41,6 +44,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  /* anchors and keyboard focus land below the fixed header */
+  scroll-padding-top: 96px;
+  color-scheme: dark;
 }
 
 body {
@@ -76,6 +82,16 @@ button {
   font: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+a,
+button,
+input,
+select,
+textarea,
+label {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
@@ -140,6 +156,7 @@ button {
   --ink-soft: rgba(var(--black-rgb), 0.74);
   --ink-mute: rgba(var(--black-rgb), 0.52);
   --line: rgba(var(--mahogany-rgb), 0.28);
+  --copper-ink: color-mix(in srgb, var(--copper) 72%, var(--mahogany));
 }
 
 /* Collage texture (our own photos, greyscale) washed in brand colour */
@@ -202,16 +219,21 @@ button {
 }
 .display .line {
   display: block;
+  text-wrap: balance;
 }
 .display .accent {
   color: var(--copper);
 }
 .display .sub {
+  /* sub-lines in Baskervville: thin Gemola at this size was hard to read */
   display: block;
-  font-size: 0.46em;
-  letter-spacing: 0.16em;
-  margin-top: 0.5em;
-  color: var(--copper);
+  font-family: var(--ff-body);
+  font-weight: 600;
+  font-size: max(13px, 0.3em);
+  line-height: 1.45;
+  letter-spacing: 0.2em;
+  margin-top: 0.75em;
+  color: var(--copper-ink);
 }
 .display--md {
   font-size: clamp(2rem, 4.1vw, 3.5rem);
@@ -597,5 +619,25 @@ button {
   }
   .stamp strong {
     font-size: 1.9rem;
+  }
+}
+
+/* ---------- mobile collages & small notes ---------- */
+@media (max-width: 980px) {
+  /* scribbled notes sit on top of photos at small widths, so they are desktop-only */
+  .note {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .print {
+    padding: 9px 9px 34px;
+  }
+  .print__cap {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 10.5px;
+    letter-spacing: 0.07em;
   }
 }

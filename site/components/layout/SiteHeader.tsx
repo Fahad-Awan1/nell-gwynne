@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV, SITE } from "@/content/site";
-import { Wordmark, Monogram } from "@/components/ui/Logo";
+import { Wordmark } from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import styles from "./SiteHeader.module.css";
 
@@ -37,8 +37,7 @@ export default function SiteHeader() {
     <header className={`${styles.hdr} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo} aria-label="Nell Gwynne home">
-          <Monogram className={styles.mono} />
-          <Wordmark size="md" />
+          <Wordmark size="md" priority />
         </Link>
 
         <nav className={styles.nav} aria-label="Main">

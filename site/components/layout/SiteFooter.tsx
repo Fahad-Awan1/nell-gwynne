@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FOOTER_LINKS, SITE } from "@/content/site";
-import { Wordmark, Monogram } from "@/components/ui/Logo";
+import { Wordmark } from "@/components/ui/Logo";
 import Icon from "@/components/ui/Icon";
 import TornEdge from "@/components/paper/TornEdge";
 import styles from "./SiteFooter.module.css";
@@ -13,7 +13,6 @@ export default function SiteFooter() {
       <div className={`wrap ${styles.grid}`}>
         <div className={styles.brand}>
           <Link href="/" aria-label="Nell Gwynne home" className={styles.logo}>
-            <Monogram className={styles.mono} />
             <Wordmark size="lg" />
           </Link>
           <p className={styles.tag}>{SITE.tagline}</p>

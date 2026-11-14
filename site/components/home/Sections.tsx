@@ -25,16 +25,16 @@ export function AboutTeaser() {
           </span>
           <figure className={`print print--deckle ${s.cA}`} data-reveal="print" data-rot="-7">
             <Image src="/images/site/pub-interior.webp" alt="The bar at Nell Gwynne with flags and big screens" width={760} height={1024} sizes="(max-width: 760px) 70vw, 380px" />
-            <figcaption className="print__cap">Al Hubob St, Dubai Marina</figcaption>
+            <figcaption className="print__cap">Dubai Marina</figcaption>
           </figure>
           <figure className={`print ${s.cB}`} data-reveal="print" data-rot="9" data-delay="0.15">
             <span className="tape" style={{ top: -10, right: 20, rotate: "8deg" }} />
-            <Image src="/images/menu/full-english-breakfast.webp" alt="Full English breakfast" width={600} height={600} sizes="240px" />
+            <Image src="/images/brand/full-english.webp" alt="A Full English breakfast" width={640} height={427} sizes="260px" />
             <figcaption className="print__cap">The Full English</figcaption>
           </figure>
           <figure className={`print ${s.cC}`} data-reveal="print" data-rot="-10" data-delay="0.3">
             <Image src="/images/site/guinness-pour.webp" alt="A pint of Guinness being poured" width={600} height={850} sizes="200px" />
-            <figcaption className="print__cap">Pints poured right</figcaption>
+            <figcaption className="print__cap">Proper pints</figcaption>
           </figure>
           <div className={`stamp ${s.cStamp}`} data-reveal="stamp" data-delay="0.5">
             <span>

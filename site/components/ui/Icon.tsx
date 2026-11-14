@@ -1,4 +1,6 @@
 // Thin-line icon set in the brand style (Copper outline, 1.5 stroke).
+// beer / music / food / football / sports are the exact icons from the brand asset PDF.
+import { BRAND_ICONS } from "./brandArt";
 type Name =
   | "beer" | "music" | "food" | "football" | "sports" | "arrow" | "arrowLeft" | "pin" | "phone"
   | "whatsapp" | "instagram" | "tiktok" | "facebook" | "clock" | "calendar" | "search"
@@ -49,7 +51,7 @@ export default function Icon({ name, className, size }: { name: Name; className?
       width={size}
       height={size}
     >
-      {P[name]}
+      {name in BRAND_ICONS ? BRAND_ICONS[name as keyof typeof BRAND_ICONS].map((d, i) => <path key={i} d={d} />) : P[name]}
     </svg>
   );
 }

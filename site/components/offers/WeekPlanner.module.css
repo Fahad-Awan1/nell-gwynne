@@ -71,7 +71,7 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--copper-ink);
   white-space: nowrap;
 }
 .open svg {
@@ -96,7 +96,7 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 .what {
   display: grid;
@@ -139,11 +139,11 @@
   text-transform: uppercase;
   padding: 5px 10px;
   border: 1px solid var(--copper);
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 .everyItem em {
   font-style: normal;
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 
 @media (max-width: 620px) {

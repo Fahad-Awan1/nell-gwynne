@@ -97,11 +97,11 @@ export default function Hero() {
                   preload
                   sizes="(max-width: 760px) 80vw, 520px"
                 />
-                <figcaption className="print__cap">Match night · Dubai Marina</figcaption>
+                <figcaption className="print__cap">Match night</figcaption>
               </figure>
               <figure className={`print ${styles.second}`} data-h="print">
-                <Image src="/images/site/guinness-pour.webp" alt="A bartender pouring a pint of Guinness" width={600} height={850} sizes="260px" />
-                <figcaption className="print__cap">The perfect pour</figcaption>
+                <Image src="/images/brand/pint-and-burger.webp" alt="A pint of lager and a burger raised at Nell Gwynne" width={519} height={519} sizes="260px" />
+                <figcaption className="print__cap">Pints &amp; grub</figcaption>
               </figure>
               <div className={`stamp ${styles.stamp}`} data-h="stamp">
                 <span>

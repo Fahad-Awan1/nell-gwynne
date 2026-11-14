@@ -5,7 +5,7 @@ import { Btn, Eyebrow, Rule, Watermark } from "@/components/ui/bits";
 import TornEdge from "@/components/paper/TornEdge";
 import s from "./PageParts.module.css";
 
-type HeroImg = { src: string; alt: string; caption?: string };
+type HeroImg = { src: string; alt: string; caption?: string; w?: number; h?: number };
 
 /** Inner-page hero: dark textured band, big Gemola title, optional photo prints (MH sub-page heroes). */
 export function PageHero({
@@ -63,9 +63,10 @@ export function PageHero({
                 data-reveal="print"
                 data-rot={i === 0 ? "-8" : "9"}
                 data-delay={(0.15 + i * 0.15).toFixed(2)}
+                style={img.w && img.h ? { aspectRatio: `${img.w} / ${img.h}` } : undefined}
               >
                 {i === 1 && <span className="tape" style={{ top: -12, left: "30%", rotate: "-5deg" }} />}
-                <Image src={img.src} alt={img.alt} width={700} height={800} sizes="(max-width: 760px) 60vw, 360px" preload={i === 0} />
+                <Image src={img.src} alt={img.alt} width={img.w ?? 700} height={img.h ?? 800} sizes="(max-width: 760px) 60vw, 360px" preload={i === 0} />
                 {img.caption && <figcaption className="print__cap">{img.caption}</figcaption>}
               </figure>
             ))}

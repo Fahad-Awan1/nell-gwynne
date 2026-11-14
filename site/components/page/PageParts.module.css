@@ -44,7 +44,7 @@
   transform: rotate(45deg);
 }
 .crumb [aria-current] {
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 .prints {
   position: relative;
@@ -94,6 +94,8 @@
   padding-top: clamp(70px, 8vw, 110px);
 }
 .sheet {
+  /* parchment surface inside a dark section: use the deep copper for small text */
+  --copper-ink: color-mix(in srgb, var(--copper) 72%, var(--mahogany));
   max-width: 860px;
   margin: 0 auto;
   background: var(--parchment);
@@ -108,7 +110,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 .sheet h2 {
   font-family: var(--ff-display);
@@ -134,12 +136,12 @@
   margin-bottom: 6px;
 }
 .sheet li::marker {
-  color: var(--copper);
+  color: var(--copper-ink);
 }
 .sheet a {
   color: var(--mahogany);
   text-decoration: underline;
-  text-decoration-color: var(--copper);
+  text-decoration-color: var(--copper-ink);
   text-underline-offset: 3px;
 }
 
@@ -180,5 +182,12 @@
   .sheet {
     rotate: 0deg;
     padding: 28px 22px;
+  }
+}
+
+/* phones: the back photo's caption is half covered by the front photo, so hide it */
+@media (max-width: 760px) {
+  .p0 :global(.print__cap) {
+    display: none;
   }
 }

@@ -17,13 +17,14 @@ export const metadata: Metadata = {
 
 const ICONS: Record<string, IconName> = { beer: "beer", sports: "sports", food: "food", music: "music", football: "cue" };
 
+// Photography from the brand asset PDF
 const GALLERY = [
-  { src: "/images/site/pub-interior.webp", alt: "Match night at the bar", cap: "Match night" },
-  { src: "/images/menu/sirloin-steak.webp", alt: "Sirloin steak", cap: "Sirloin steak" },
-  { src: "/images/site/guinness-pour.webp", alt: "Guinness being poured", cap: "The perfect pour" },
-  { src: "/images/menu/shepherd-s-pie.webp", alt: "Shepherd’s pie", cap: "Shepherd’s pie" },
-  { src: "/images/menu/espresso-martini.webp", alt: "Espresso martini", cap: "Espresso martini" },
-  { src: "/images/menu/bbq-pork-baby-back-ribs.webp", alt: "BBQ pork ribs", cap: "Baby back ribs" },
+  { src: "/images/brand/bar-interior.webp", alt: "The wood-panelled bar at Nell Gwynne", cap: "The bar", w: 630, h: 350 },
+  { src: "/images/brand/match-crowd.webp", alt: "A packed crowd watching the match", cap: "Match night", w: 640, h: 427 },
+  { src: "/images/brand/pint-and-burger.webp", alt: "A pint and a burger raised in cheers", cap: "Pints & burgers", w: 519, h: 519 },
+  { src: "/images/brand/full-english.webp", alt: "A Full English breakfast", cap: "The Full English", w: 640, h: 427 },
+  { src: "/images/brand/pool-and-food.webp", alt: "Pub food by the pool table", cap: "Pool & plates", w: 600, h: 400 },
+  { src: "/images/brand/bar-wide.webp", alt: "The bar and its stone pillar", cap: "Your local", w: 567, h: 378 },
 ];
 
 export default function AboutPage() {
@@ -37,8 +38,8 @@ export default function AboutPage() {
         lede="Live sports, ice-cold pints, hearty pub food and no ego. Nell Gwynne is the laid-back local where the crowd feels like home."
         watermark="Since 2011"
         images={[
-          { src: "/images/site/pub-interior.webp", alt: "Guests at Nell Gwynne watching football", caption: "Your local since 2011" },
-          { src: "/images/site/guinness-pour.webp", alt: "Bartender pouring a Guinness", caption: "Pints poured right" },
+          { src: "/images/brand/bar-interior.webp", alt: "The wood-panelled bar at Nell Gwynne", caption: "Your local since 2011", w: 630, h: 350 },
+          { src: "/images/brand/match-crowd.webp", alt: "A packed crowd watching the match at Nell Gwynne", caption: "Match night", w: 640, h: 427 },
         ]}
       />
 
@@ -79,8 +80,8 @@ export default function AboutPage() {
             </div>
             <figure className={`print ${s.storyPhoto}`} data-reveal="print" data-rot="8" data-delay="0.15">
               <span className="tape" style={{ top: -12, left: 24, rotate: "-6deg" }} />
-              <Image src="/images/menu/full-english-breakfast.webp" alt="Full English breakfast" width={600} height={600} sizes="280px" />
-              <figcaption className="print__cap">Breakfast from 9am</figcaption>
+              <Image src="/images/brand/full-english.webp" alt="A Full English breakfast" width={640} height={427} sizes="300px" />
+              <figcaption className="print__cap">The Full English</figcaption>
             </figure>
             <div className={`stamp ${s.storyStamp}`} data-reveal="stamp" data-delay="0.4">
               <span>
@@ -155,7 +156,7 @@ export default function AboutPage() {
           <div className={s.gallery} data-reveal="stagger">
             {GALLERY.map((g, i) => (
               <figure key={g.src} className={`print ${s.gItem}`} style={{ rotate: `${[-3, 2, -1.5, 2.5, -2, 1.5][i]}deg` }}>
-                <Image src={g.src} alt={g.alt} width={600} height={600} sizes="(max-width: 760px) 45vw, 360px" />
+                <Image src={g.src} alt={g.alt} width={g.w} height={g.h} sizes="(max-width: 760px) 45vw, 360px" />
                 <figcaption className="print__cap">{g.cap}</figcaption>
               </figure>
             ))}

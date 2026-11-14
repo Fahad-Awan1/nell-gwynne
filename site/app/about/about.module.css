@@ -58,8 +58,8 @@
   position: absolute;
   right: 0;
   bottom: 30px;
-  width: 46%;
-  aspect-ratio: 0.86;
+  width: 50%;
+  aspect-ratio: 1.3;
   rotate: 6deg;
   z-index: 2;
 }
@@ -125,7 +125,7 @@
 }
 .gItem {
   margin: 0;
-  aspect-ratio: 0.92;
+  aspect-ratio: 1.25;
   transition: rotate 0.45s var(--ease), translate 0.45s var(--ease);
 }
 .gItem:hover {
@@ -195,5 +195,20 @@
   }
   .feat p {
     font-size: 13.5px;
+  }
+}
+
+@media (max-width: 760px) {
+  .storyStamp.storyStamp {
+    left: -4px;
+    bottom: -16px;
+    width: 96px;
+  }
+  .storyStamp :global(strong) {
+    font-size: 1.6rem;
+  }
+  /* an odd last feature card spans the full row instead of sitting alone */
+  .feat:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
   }
 }
