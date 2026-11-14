@@ -191,3 +191,8 @@
     display: none;
   }
 }
+
+/* back photo of the hero pair: its caption sits under the front photo at every size */
+.p0 :global(.print__cap) {
+  display: none;
+}

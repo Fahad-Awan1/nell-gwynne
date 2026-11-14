@@ -20,3 +20,6 @@ next-env.d.ts
 npm-debug.log*
 .DS_Store
 Thumbs.db
+
+# raw source video (a compressed web copy lives in site/public/video)
+/NELL VIDEO.mp4

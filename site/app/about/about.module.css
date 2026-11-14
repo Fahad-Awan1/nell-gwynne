@@ -125,7 +125,7 @@
 }
 .gItem {
   margin: 0;
-  aspect-ratio: 1.25;
+  align-self: start;
   transition: rotate 0.45s var(--ease), translate 0.45s var(--ease);
 }
 .gItem:hover {
@@ -211,4 +211,9 @@
   .feat:last-child:nth-child(odd) {
     grid-column: 1 / -1;
   }
+}
+
+/* gallery photos keep their own shape (landscape and square), so none is cropped */
+.gItem img {
+  height: auto;
 }

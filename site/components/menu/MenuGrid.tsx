@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useDeferredValue, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { keepTilt } from "@/components/motion/keepTilt";
 import menu from "@/content/menu.json";
 import Icon from "@/components/ui/Icon";
+import DishModal from "./DishModal";
 import s from "./MenuGrid.module.css";
 
 type Item = (typeof menu.items)[number];
@@ -64,6 +65,45 @@ export default function MenuGrid() {
     return menu.categories.map((c) => ({ ...c, items: filtered.filter((i) => i.category === c.id) })).filter((g) => g.items.length);
   }, [cat, q, filtered]);
 
+  // ----- dish detail popup -----
+  const [openSlug, setOpenSlug] = useState<string | null>(null);
+  // the popup steps through dishes in the order they are shown on screen
+  const shown = useMemo(() => groups.flatMap((g) => g.items), [groups]);
+  const openIndex = openSlug ? shown.findIndex((i) => i.slug === openSlug) : -1;
+  const openItem = openIndex >= 0 ? shown[openIndex] : openSlug ? (menu.items.find((i) => i.slug === openSlug) ?? null) : null;
+
+  const openDish = useCallback((slug: string) => {
+    setOpenSlug(slug);
+    history.replaceState(null, "", `#${slug}`); // shareable link to this dish
+  }, []);
+  const closeDish = useCallback(() => {
+    setOpenSlug(null);
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }, []);
+  const step = useCallback(
+    (dir: 1 | -1) => {
+      if (!shown.length) return;
+      const from = openIndex >= 0 ? openIndex : 0;
+      openDish(shown[(from + dir + shown.length) % shown.length].slug);
+    },
+    [shown, openIndex, openDish],
+  );
+
+  // open the dish named in the URL hash (e.g. links from the home page carousel)
+  useEffect(() => {
+    const fromHash = () => {
+      const slug = decodeURIComponent(window.location.hash.slice(1));
+      if (!slug || !menu.items.some((i) => i.slug === slug)) return;
+      requestAnimationFrame(() => {
+        setOpenSlug(slug);
+        document.getElementById(slug)?.scrollIntoView({ block: "center" });
+      });
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    return () => window.removeEventListener("hashchange", fromHash);
+  }, []);
+
   // The grid owns its reveal (not MotionRoot): every filter change renders new cards, and each
   // batch fades up as it scrolls into view. Cards are never left hidden.
   useLayoutEffect(() => {
@@ -78,7 +118,10 @@ export default function MenuGrid() {
       const catChanged = prevCat.current !== cat;
       prevCat.current = cat;
       const top = el.getBoundingClientRect().top + window.scrollY - 150;
-      if (window.scrollY > top) window.scrollTo({ top, behavior: catChanged ? "smooth" : "auto" });
+      // "instant", not "auto": the page has CSS smooth scrolling, which would make typing lag behind
+      if (window.scrollY > top) window.scrollTo({ top, behavior: catChanged ? "smooth" : "instant" });
+      // typing in search: show the results straight away, no fade-in on every keystroke
+      if (!catChanged) return;
     }
 
     const ctx = gsap.context(() => {
@@ -190,7 +233,7 @@ export default function MenuGrid() {
             )}
             <div className={s.grid}>
               {g.items.map((it, i) => (
-                <Card key={it.slug} it={it} i={i} />
+                <Card key={it.slug} it={it} i={i} onOpen={openDish} />
               ))}
             </div>
           </section>
@@ -198,14 +241,23 @@ export default function MenuGrid() {
 
         <p className={s.legend}>
           <strong>Allergens:</strong> G Gluten · D Dairy · E Egg · S Seafood. Not every dish is labelled yet, so please tell your
-          server about any allergies. All prices in AED.
+          server about any allergies. All prices in AED. Tap a dish to see it larger.
         </p>
       </div>
+
+      <DishModal
+        item={openItem}
+        index={Math.max(openIndex, 0)}
+        total={shown.length}
+        onClose={closeDish}
+        onPrev={() => step(-1)}
+        onNext={() => step(1)}
+      />
     </div>
   );
 }
 
-function Card({ it, i }: { it: Item; i: number }) {
+function Card({ it, i, onOpen }: { it: Item; i: number; onOpen: (slug: string) => void }) {
   const offer = it.category === "offers";
   return (
     <article id={it.slug} className={`${s.card} ${offer ? s.offer : ""}`} data-card style={{ rotate: `${[-1.2, 0.8, -0.5, 1.1, -0.9][i % 5]}deg` }}>
@@ -214,6 +266,8 @@ function Card({ it, i }: { it: Item; i: number }) {
         <span className={s.price}>AED {it.price}</span>
         {offer && <span className={s.flag}>Special Offer</span>}
       </div>
+      {/* covers the whole card: tap anywhere to open the dish details */}
+      <button type="button" className={s.open} onClick={() => onOpen(it.slug)} aria-haspopup="dialog" aria-label={`View details: ${it.name}`} />
       <div className={s.body}>
         <h3 className={s.name}>{it.name}</h3>
         <p className={s.desc}>{it.description}</p>

@@ -248,3 +248,16 @@
     display: none;
   }
 }
+
+/* all sizes: the stamp sits on the photo's top-left corner, clear of the caption */
+.stamp.stamp {
+  top: -18px;
+  bottom: auto;
+}
+
+/* up to small laptops the second photo overlaps the first photo's caption: hide it there */
+@media (max-width: 1100px) {
+  .main :global(.print__cap) {
+    display: none;
+  }
+}

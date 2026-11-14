@@ -135,7 +135,7 @@
 .cardCap {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  align-items: baseline;
+  align-items: start;
   gap: 10px;
   padding: 16px 4px 18px;
 }
@@ -149,11 +149,10 @@
   font-family: var(--ff-body);
   font-weight: 600;
   font-size: 14px;
-  letter-spacing: 0.08em;
+  line-height: 1.3;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-wrap: anywhere;
 }
 .price {
   font-size: 12.5px;
@@ -278,4 +277,9 @@
   .pA :global(.print__cap) {
     display: none;
   }
+}
+
+/* back photo of the collage: its caption sits under the steak pie photo at every size */
+.pA :global(.print__cap) {
+  display: none;
 }
