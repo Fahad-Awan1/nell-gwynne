@@ -8,7 +8,7 @@ import Icon from "@/components/ui/Icon";
 import TornEdge from "@/components/paper/TornEdge";
 import s from "./Fixtures.module.css";
 
-const LIMIT = 8;
+const LIMIT = 5; // desktop; phones show 4 (CSS) until "View all"
 
 export default function Fixtures() {
   const comps = useMemo(() => ["All", ...Array.from(new Set(FIXTURES.map((f) => f.comp)))], []);
@@ -107,7 +107,7 @@ export default function Fixtures() {
           </ol>
           {filtered.length > LIMIT && (
             <button className={s.more} onClick={() => setAll((a) => !a)}>
-              {all ? "Show fewer" : `Show all ${filtered.length} fixtures`}
+              {all ? "Show fewer" : `View all ${filtered.length} fixtures`}
               <Icon name="plus" className={all ? s.minus : undefined} />
             </button>
           )}

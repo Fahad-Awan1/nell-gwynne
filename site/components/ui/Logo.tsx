@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { MONOGRAM } from "./brandArt";
 import styles from "./Logo.module.css";
 

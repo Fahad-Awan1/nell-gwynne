@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { useEffect, useRef } from "react";
 import menu from "@/content/menu.json";
 import { SITE } from "@/content/site";

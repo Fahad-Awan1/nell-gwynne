@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { FEATURES, SITE } from "@/content/site";
 import MotionRoot from "@/components/motion/MotionRoot";
 import Timeline from "@/components/about/Timeline";

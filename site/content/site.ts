@@ -345,11 +345,11 @@ export type SocialPost = { url: string; caption: string; image: string; w: numbe
 const IG = "https://www.instagram.com/nellgwynnemarina/";
 export const SOCIAL_POSTS: SocialPost[] = [
   { url: "https://www.instagram.com/p/DRhKWZxDHUq/", caption: "Introducing The Gentle Pour: 60% Guinness 0.0, 40% Guinness 4.2.", image: "/images/site/guinness-pour.webp", w: 1131, h: 1600 },
-  { url: IG, caption: "Inside Dubai Guide came for the Sunday roast. Here’s the verdict.", image: "/video/reels/dubai-guide-review.jpg", w: 540, h: 960, video: "/video/reels/dubai-guide-review.mp4", hold: 15000 },
+  { url: IG, caption: "Inside Dubai Guide came for the Sunday roast. Here’s the verdict.", image: "/video/reels/dubai-guide-review-sm.webp", w: 360, h: 640, video: "/video/reels/dubai-guide-review-home.mp4", hold: 15000 },
   { url: IG, caption: "Monday Night Live: speed quiz, music bingo and prizes. Every Monday, 8pm.", image: "/images/gallery/posters/monday-quiz.webp", w: 1080, h: 1920 },
-  { url: IG, caption: "Booths, darts, pool and big screens. Take a look around.", image: "/video/reels/inside-the-pub.jpg", w: 720, h: 1280, video: "/video/reels/inside-the-pub.mp4", hold: 8500 },
+  { url: IG, caption: "Booths, darts, pool and big screens. Take a look around.", image: "/video/reels/inside-the-pub-sm.webp", w: 360, h: 640, video: "/video/reels/inside-the-pub.mp4", hold: 8500 },
   { url: IG, caption: "Ladies Night, Sunday to Wednesday: 50% off selected food, drinks from AED 20.", image: "/images/gallery/posters/ladies-night.webp", w: 1080, h: 1920 },
-  { url: IG, caption: "Speed Wagon, live every Wednesday from 9pm.", image: "/video/reels/speed-wagon.jpg", w: 720, h: 1280, video: "/video/reels/speed-wagon.mp4", hold: 10500 },
+  { url: IG, caption: "Speed Wagon, live every Wednesday from 9pm.", image: "/video/reels/speed-wagon-sm.webp", w: 360, h: 640, video: "/video/reels/speed-wagon.mp4", hold: 10500 },
   { url: IG, caption: "Christmas Day 2026: brunch buffet and drinks packages from AED 199.", image: "/images/gallery/posters/christmas-day.webp", w: 1080, h: 1920 },
 ];
 

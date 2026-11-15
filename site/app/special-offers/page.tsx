@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { EVENTS, GENTLE_POUR, OFFERS, SITE } from "@/content/site";
 import MotionRoot from "@/components/motion/MotionRoot";
 import WeekPlanner from "@/components/offers/WeekPlanner";

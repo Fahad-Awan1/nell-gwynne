@@ -71,13 +71,22 @@
     opacity: 0.2;
   }
 }
+/* one scrolling row of chips (no second line), faded at the right edge */
 .chips {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
   gap: 8px;
   margin: 18px 0 8px;
+  padding-right: 28px;
+  mask-image: linear-gradient(90deg, #000 86%, transparent);
+}
+.chips::-webkit-scrollbar {
+  display: none;
 }
 .chip {
+  flex: none;
   border: 1px solid rgba(137, 89, 54, 0.6);
   background: transparent;
   padding: 7px 14px;
@@ -101,6 +110,17 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+/* "View all": the full list scrolls inside the board, so the card stays compact */
+.rows:not(.limited) {
+  max-height: 420px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-right: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--copper) transparent;
+  padding-bottom: 28px;
+  mask-image: linear-gradient(180deg, #000 86%, transparent);
 }
 .row {
   display: grid;
@@ -254,18 +274,27 @@
     font-size: 13px;
     letter-spacing: 0.1em;
   }
-  /* show the first five fixtures on phones until "Show all" is pressed */
-  .limited > li:nth-child(n + 6) {
+  /* show the first four fixtures on phones until "View all" is pressed */
+  .limited > li:nth-child(n + 5) {
     display: none;
   }
+  .rows:not(.limited) {
+    max-height: 340px;
+  }
+  /* compact one-line rows: tag · teams · time */
   .row {
-    grid-template-columns: 1fr auto;
-    row-gap: 4px;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 10px;
+    padding: 11px 2px;
   }
   .comp {
-    grid-column: 1 / -1;
-    padding: 2px 6px;
-    font-size: 9.5px;
+    grid-column: auto;
+    padding: 2px 5px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+  }
+  .when {
+    font-size: 11px;
   }
   .teams {
     font-size: 13.5px;

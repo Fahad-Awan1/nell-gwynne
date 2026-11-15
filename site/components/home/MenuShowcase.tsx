@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { useCallback, useEffect, useRef, useState } from "react";
 import menu from "@/content/menu.json";
 import { Btn, Eyebrow, Rule, Watermark, Note } from "@/components/ui/bits";

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { useEffect, useMemo, useState } from "react";
 import { POSTERS, POSTER_CATS, PUB_PHOTOS, REELS, posterSrc, type PosterCat } from "@/content/gallery";
 import { SITE } from "@/content/site";
@@ -76,7 +76,7 @@ export default function GalleryView() {
   const photoCols = useMemo(() => balance(PUB_PHOTOS, cols), [cols]);
 
   const reelItems: MediaItem[] = useMemo(
-    () => REELS.map((r) => ({ type: "video", src: r.src, poster: r.poster, alt: r.title, title: r.title, caption: r.caption, w: 720, h: 1280 })),
+    () => REELS.map((r) => ({ type: "video", src: r.src, poster: r.poster.replace(".jpg", "-sm.webp"), alt: r.title, title: r.title, caption: r.caption, w: 720, h: 1280 })),
     [],
   );
   const photoItems: MediaItem[] = useMemo(

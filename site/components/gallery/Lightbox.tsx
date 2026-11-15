@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { useEffect, useRef } from "react";
 import Icon from "@/components/ui/Icon";
 import s from "./Lightbox.module.css";

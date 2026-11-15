@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import Link from "next/link";
 import { OFFERS, SITE, STATS, TESTIMONIALS } from "@/content/site";
 import { Btn, Eyebrow, Rule, Watermark, Note } from "@/components/ui/bits";

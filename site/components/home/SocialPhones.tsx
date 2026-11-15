@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/ui/Img";
 import { useEffect, useRef, useState } from "react";
 import { SITE, SOCIAL_POSTS } from "@/content/site";
 import { Btn, Eyebrow, Rule, Watermark } from "@/components/ui/bits";
@@ -14,6 +14,8 @@ export default function SocialPhones() {
   const [active, setActive] = useState(1);
   const [paused, setPaused] = useState(false);
   const [onScreen, setOnScreen] = useState(false);
+  // reels are only fetched once the visitor scrolls near this section (saves data and speeds up the page)
+  const [near, setNear] = useState(false);
   const [sound, setSound] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
@@ -21,9 +23,14 @@ export default function SocialPhones() {
   useEffect(() => {
     const el = stageRef.current;
     if (!el) return;
+    const nio = new IntersectionObserver(([e]) => e.isIntersecting && setNear(true), { rootMargin: "600px 0px" });
+    nio.observe(el);
     const io = new IntersectionObserver(([e]) => setOnScreen(e.isIntersecting), { threshold: 0.25 });
     io.observe(el);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      nio.disconnect();
+    };
   }, []);
 
   // a reel stays in front for one play (capped at 15s); posters for 4s. With sound on, it stays until switched.
@@ -44,7 +51,7 @@ export default function SocialPhones() {
         v.play().catch(() => {});
       } else v.pause();
     });
-  }, [active, onScreen]);
+  }, [active, onScreen, near]);
 
   // sound only ever plays on the front reel, and only after the visitor asks for it
   useEffect(() => {
@@ -140,12 +147,12 @@ export default function SocialPhones() {
                         ref={(el) => {
                           videos.current[i] = el;
                         }}
-                        src={p.video}
+                        src={near ? p.video : undefined}
                         poster={p.image}
                         muted
                         loop
                         playsInline
-                        preload="metadata"
+                        preload={near ? "metadata" : "none"}
                         aria-label={p.caption}
                       />
                     ) : (
