@@ -200,8 +200,11 @@ export default function SocialPhones() {
                         {p.stats?.shares}
                       </span>
                     </span>
-                    <span className={s.comment}>
-                      <strong>{SITE.social.handle.replace("@", "")}</strong> {p.caption}
+                    <span className={s.commentRow}>
+                      <span className={s.comment}>
+                        <strong>{SITE.social.handle.replace("@", "")}</strong> {p.caption}
+                      </span>
+                      <span className={s.moreTag}>more</span>
                     </span>
                   </span>
                   <span className={s.homeBar} aria-hidden="true" />

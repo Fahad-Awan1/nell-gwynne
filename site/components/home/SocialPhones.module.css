@@ -408,3 +408,73 @@
 .phone:not(.front) .likesLine {
   opacity: 0;
 }
+
+/* "… more" only appears on phones, where the caption is one line (like Instagram) */
+.commentRow {
+  display: block;
+}
+.moreTag {
+  display: none;
+}
+@media (max-width: 760px) {
+  /* compact app bars on phones, so the reel itself gets the room */
+  .bar {
+    padding: 34px 10px 6px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .bar svg {
+    width: 16px;
+    height: 16px;
+  }
+  .caption {
+    min-height: 0;
+    padding: 7px 10px 20px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .actions {
+    gap: 9px;
+    margin-bottom: 3px;
+  }
+  .actions svg {
+    width: 13px;
+    height: 13px;
+  }
+  .actions > span {
+    font-size: 9.5px;
+    gap: 3px;
+  }
+  .commentRow {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    min-width: 0;
+  }
+  .comment {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .moreTag {
+    display: inline;
+    flex: none;
+    color: rgba(243, 233, 220, 0.55);
+  }
+  .homeBar {
+    bottom: 11px;
+  }
+  .notch {
+    top: 14px;
+    width: 60px;
+    height: 17px;
+  }
+}
+@media (max-width: 760px) {
+  /* the handle is already in the header; on phones the one-line caption shows the post text */
+  .comment strong {
+    display: none;
+  }
+}
