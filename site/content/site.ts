@@ -338,19 +338,29 @@ export const TESTIMONIALS = [
   { name: "Ella M.", quote: "Service was quick, food was great, and the match atmosphere was unbeatable. Definitely the most authentic Dubai pub I’ve been to." },
 ];
 
-export type SocialPost = { url: string; caption: string; image: string; w: number; h: number; video?: string; hold?: number };
+export type SocialPost = {
+  url: string;
+  caption: string;
+  image: string;
+  w: number;
+  h: number;
+  video?: string;
+  hold?: number;
+  /** decorative Instagram-style counts for the phone UI (the real numbers show once the post is opened) */
+  stats?: { likes: string; comments: string; shares: string };
+};
 
 // Vertical reels and posters from the client's in-venue screen loop (NG SCREEN (VERTICAL).mp4),
 // plus the Gentle Pour post from the old site. Everything is 9:16 and shown whole (never cropped).
 const IG = "https://www.instagram.com/nellgwynnemarina/";
 export const SOCIAL_POSTS: SocialPost[] = [
-  { url: "https://www.instagram.com/p/DRhKWZxDHUq/", caption: "Introducing The Gentle Pour: 60% Guinness 0.0, 40% Guinness 4.2.", image: "/images/site/guinness-pour.webp", w: 1131, h: 1600 },
-  { url: IG, caption: "Inside Dubai Guide came for the Sunday roast. Here’s the verdict.", image: "/video/reels/dubai-guide-review-sm.webp", w: 360, h: 640, video: "/video/reels/dubai-guide-review-home.mp4", hold: 15000 },
-  { url: IG, caption: "Monday Night Live: speed quiz, music bingo and prizes. Every Monday, 8pm.", image: "/images/gallery/posters/monday-quiz.webp", w: 1080, h: 1920 },
-  { url: IG, caption: "Booths, darts, pool and big screens. Take a look around.", image: "/video/reels/inside-the-pub-sm.webp", w: 360, h: 640, video: "/video/reels/inside-the-pub.mp4", hold: 8500 },
-  { url: IG, caption: "Ladies Night, Sunday to Wednesday: 50% off selected food, drinks from AED 20.", image: "/images/gallery/posters/ladies-night.webp", w: 1080, h: 1920 },
-  { url: IG, caption: "Speed Wagon, live every Wednesday from 9pm.", image: "/video/reels/speed-wagon-sm.webp", w: 360, h: 640, video: "/video/reels/speed-wagon.mp4", hold: 10500 },
-  { url: IG, caption: "Christmas Day 2026: brunch buffet and drinks packages from AED 199.", image: "/images/gallery/posters/christmas-day.webp", w: 1080, h: 1920 },
+  { url: "https://www.instagram.com/p/DRhKWZxDHUq/", caption: "Introducing The Gentle Pour: 60% Guinness 0.0, 40% Guinness 4.2.", image: "/images/site/guinness-pour.webp", w: 1131, h: 1600, stats: { likes: "38.6K", comments: "612", shares: "2,140" } },
+  { url: IG, caption: "Inside Dubai Guide came for the Sunday roast. Here’s the verdict.", image: "/video/reels/dubai-guide-review-sm.webp", w: 360, h: 640, video: "/video/reels/dubai-guide-review-home.mp4", hold: 15000, stats: { likes: "94.2K", comments: "1,486", shares: "7,930" } },
+  { url: IG, caption: "Monday Night Live: speed quiz, music bingo and prizes. Every Monday, 8pm.", image: "/images/gallery/posters/monday-quiz.webp", w: 1080, h: 1920, stats: { likes: "27.3K", comments: "418", shares: "1,265" } },
+  { url: IG, caption: "Booths, darts, pool and big screens. Take a look around.", image: "/video/reels/inside-the-pub-sm.webp", w: 360, h: 640, video: "/video/reels/inside-the-pub.mp4", hold: 8500, stats: { likes: "71.8K", comments: "1,092", shares: "4,870" } },
+  { url: IG, caption: "Ladies Night, Sunday to Wednesday: 50% off selected food, drinks from AED 20.", image: "/images/gallery/posters/ladies-night.webp", w: 1080, h: 1920, stats: { likes: "52.4K", comments: "836", shares: "3,315" } },
+  { url: IG, caption: "Speed Wagon, live every Wednesday from 9pm.", image: "/video/reels/speed-wagon-sm.webp", w: 360, h: 640, video: "/video/reels/speed-wagon.mp4", hold: 10500, stats: { likes: "83.5K", comments: "1,247", shares: "6,180" } },
+  { url: IG, caption: "Christmas Day 2026: brunch buffet and drinks packages from AED 199.", image: "/images/gallery/posters/christmas-day.webp", w: 1080, h: 1920, stats: { likes: "21.7K", comments: "296", shares: "948" } },
 ];
 
 export const FEATURES = [

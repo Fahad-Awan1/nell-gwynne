@@ -359,3 +359,52 @@
 .screen video {
   background: var(--mahogany);
 }
+
+/* Instagram-style counts and the caption written as the account's comment */
+.actions > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--parchment);
+}
+.actions {
+  gap: 14px;
+}
+.likesLine {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--parchment);
+  margin-bottom: 2px;
+}
+.comment strong {
+  font-weight: 700;
+  color: var(--parchment);
+  margin-right: 3px;
+}
+@media (max-width: 760px) {
+  .actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .actions svg {
+    width: 15px;
+    height: 15px;
+  }
+  .actions > span {
+    font-size: 10.5px;
+    gap: 4px;
+  }
+  .likesLine {
+    display: none;
+  }
+  .caption {
+    font-size: 11.5px;
+  }
+}
+.phone:not(.front) .likesLine {
+  opacity: 0;
+}
