@@ -40,6 +40,7 @@ export const NAV = [
   { href: "/menu", label: "Menu" },
   { href: "/special-offers", label: "Special Offers" },
   { href: "/about", label: "About Us" },
+  { href: "/gallery", label: "Gallery" },
 ];
 
 export const FOOTER_LINKS = {
@@ -48,6 +49,7 @@ export const FOOTER_LINKS = {
     { href: "/menu", label: "Our Menu" },
     { href: "/special-offers", label: "Special Offers" },
     { href: "/about", label: "About Us" },
+    { href: "/gallery", label: "Gallery" },
     { href: "/book", label: "Book a Table" },
   ],
   useful: [
@@ -87,14 +89,14 @@ export const OFFERS: Offer[] = [
     slug: "wings-night",
     title: "Wings Night",
     when: "Tuesday · 5pm – 11pm",
-    price: "AED 49",
+    price: "Wings AED 3",
     copy: "Midweek plans? Sorted. Dive into a stack of wings, sauce everywhere, cold pint in hand. Loud sports, louder crowd. You won’t leave hungry.",
     image: "/images/site/offer-wings-night.webp",
   },
   {
     slug: "quiz-night",
     title: "Quiz Night",
-    when: "Monday · from 7pm",
+    when: "Monday · 8pm",
     copy: "Not your average pub quiz. Bring the crew, grab a pint, and show off those random facts. Win drinks, lose pride, either way, it’s a good time.",
     image: "/images/site/offer-quiz-night.webp",
   },
@@ -102,7 +104,7 @@ export const OFFERS: Offer[] = [
     slug: "ladies-night",
     title: "Ladies Night",
     when: "Sun – Wed · 8pm – 12am",
-    price: "AED 20 drinks",
+    price: "Drinks from AED 20",
     copy: "Drinks on us, music up, zero awkward vibes. Grab the girls and take over the night. You’ve earned it.",
     image: "/images/site/offer-ladies-night.webp",
   },
@@ -128,8 +130,9 @@ export const SCHEDULE: ScheduleDay[] = [
     day: "Monday",
     short: "Mon",
     items: [
-      { time: "5pm – 11pm", title: "Monday Taco Night", detail: "3 tacos + fries + soft drink. Chicken, beef or veg. Extra tacos AED 9 each (min. 2).", price: "AED 49" },
-      { time: "From 7pm", title: "Quiz Night", detail: "Gather your squad, grab a pint, and put your knowledge to the test." },
+      { time: "5pm – 11pm", title: "Monday Taco Night", detail: "Tacos AED 9 each. Or the combo: 3 tacos + fries + soft drink (chicken, beef or veg), AED 49.", price: "AED 9" },
+      { time: "8pm", title: "Monday Night Live Quiz", detail: "Speed quizzing, music bingo, live games and amazing prizes. Gather your squad and grab a pint." },
+      { time: "7pm – 3am", title: "50% Off for Hospitality", detail: "50% off food & beverage for hoteliers, airline & cabin crew and teachers." },
       { time: "8pm – 12am", title: "Ladies Night", detail: "50% off all selected food items · AED 20 selected house spirits, wines & frozen cocktails." },
     ],
   },
@@ -137,7 +140,9 @@ export const SCHEDULE: ScheduleDay[] = [
     day: "Tuesday",
     short: "Tue",
     items: [
-      { time: "5pm – 11pm", title: "Tuesday Wings Night", detail: "6 wings + fries + soft drink. Classic Buffalo, Honey Garlic Peri-Peri or Smoky BBQ. Extra wings AED 3 each.", price: "AED 49" },
+      { time: "5pm – 11pm", title: "Tuesday Wings Night", detail: "Wings AED 3 each. Or 6 wings + fries + soft drink (Classic Buffalo, Honey Garlic Peri-Peri or Smoky BBQ), AED 49.", price: "AED 3" },
+      { time: "Evening", title: "DJ El Chabou", detail: "On the decks every Tuesday and Sunday." },
+      { time: "7pm – 3am", title: "50% Off for Hospitality", detail: "50% off food & beverage for hoteliers, airline & cabin crew and teachers." },
       { time: "Evening", title: "Board Games & Live Music", detail: "Gather your mates, grab a pint, and dive into a fun night of board games every Tuesday." },
       { time: "8pm – 12am", title: "Ladies Night", detail: "50% off all selected food items · AED 20 selected house spirits, wines & frozen cocktails." },
     ],
@@ -147,6 +152,7 @@ export const SCHEDULE: ScheduleDay[] = [
     short: "Wed",
     items: [
       { time: "12pm – 12am", title: "Wednesday Pie Night", detail: "Buy 1 get 1 offer.", price: "AED 99" },
+      { time: "From 9pm", title: "Speed Wagon", detail: "Live music every Wednesday." },
       { time: "8pm – 12am", title: "Ladies Night", detail: "50% off all selected food items · AED 20 selected house spirits, wines & frozen cocktails." },
     ],
   },
@@ -156,28 +162,35 @@ export const SCHEDULE: ScheduleDay[] = [
     items: [
       { time: "12pm – 12am", title: "Bangers & Mash", detail: "Buy 1 get 1 offer.", price: "AED 99" },
       { time: "All day", title: "Match Night", detail: "European football and big fixtures on every screen." },
+      { time: "9:30pm", title: "Cherry Bomb", detail: "Live music every Thursday night." },
+      { time: "Evening", title: "DJ Val", detail: "On the decks every Thursday and Saturday." },
     ],
   },
   {
     day: "Friday",
     short: "Fri",
-    items: [{ time: "All day", title: "Pork Back Ribs", detail: "Special offer on Fridays: buy 1 get 1.", price: "AED 199" }],
+    items: [
+      { time: "All day", title: "Pork Back Ribs", detail: "Special offer on Fridays: buy 1 get 1.", price: "AED 199" },
+      { time: "Evening", title: "Jack the Hat", detail: "Live every Friday." },
+    ],
   },
   {
     day: "Saturday",
     short: "Sat",
     items: [
-      { time: "9am – 3pm", title: "Weekend Breakfast", detail: "Saturday and Sunday from 9am to 3pm.", price: "AED 45" },
+      { time: "12pm – 6pm", title: "Weekend Roast", detail: "Beef, chicken or pork with roast potatoes, seasonal veg, Yorkshire pudding, cauliflower cheese & gravy." },
       { time: "Brunch", title: "Saturday Roast Brunch", detail: "Roast potato, seasoned vegetables, Yorkshire pudding, cauliflower cheese & gravy, with 3 hours unlimited selected house beverages (AED 169 with soft beverages).", price: "AED 199" },
       { time: "All day", title: "Wings Night", detail: "Every Saturday buy 1 get 1 offer.", price: "AED 99" },
+      { time: "Evening", title: "DJ Val", detail: "On the decks every Thursday and Saturday." },
     ],
   },
   {
     day: "Sunday",
     short: "Sun",
     items: [
-      { time: "9am – 3pm", title: "Weekend Breakfast", detail: "Saturday and Sunday from 9am to 3pm.", price: "AED 45" },
-      { time: "All day", title: "Sunday Roast", detail: "Every Sunday buy 1 get 1 offer.", price: "AED 129" },
+      { time: "11am – 2pm", title: "Sunday Roast", detail: "The Sunday roast with AED 1 pints of Carlsberg (first 50 pints only).", price: "AED 89" },
+      { time: "12pm – 6pm", title: "Weekend Roast", detail: "Beef, chicken or pork with roast potatoes, seasonal veg, Yorkshire pudding, cauliflower cheese & gravy." },
+      { time: "Evening", title: "DJ El Chabou", detail: "On the decks every Tuesday and Sunday." },
       { time: "8pm – 12am", title: "Ladies Night", detail: "50% off all selected food items · AED 20 selected house spirits, wines & frozen cocktails." },
     ],
   },
@@ -185,47 +198,80 @@ export const SCHEDULE: ScheduleDay[] = [
 
 export const DAILY = [
   { time: "12pm – 8pm", title: "Happy Hour", detail: "Discounted drinks every single day." },
-  { time: "12pm – 4:30pm", title: "Lunch Time", detail: "Lunch with a glass of wine or soft beverage.", price: "AED 45" },
+  { time: "11am – 4:30pm", title: "Lunch Deal", detail: "Any one menu item with a selected soft drink or house wine.", price: "AED 49" },
+  { time: "From 8am", title: "Everyday Breakfast", detail: "Mon – Thu from 11am, Fri – Sun from 8am.", price: "From AED 49" },
+  { time: "11am – 5pm", title: "25 Before 5", detail: "Selected standard drinks: AED 25 Mon – Fri, AED 29 Sat – Sun.", price: "AED 25" },
+  { time: "12pm – 3am", title: "Wine Bottle Deal", detail: "Selected bottle AED 129, or buy one get one for AED 229.", price: "AED 129" },
+  { time: "All day", title: "Board Games", detail: "Grab a game from the bar, every day." },
 ];
 
+// 2026 festive season, from the posters on the pub's screens (NG SCREEN (VERTICAL).mp4)
 export const EVENTS = [
   {
-    title: "Christmas Day",
-    date: "25 December · 12pm – 6pm",
-    copy: "Carving station, live music by Cherry Bomb and a live DJ till close.",
+    title: "Christmas Parties",
+    date: "1 Nov – 23 Dec 2026",
+    copy: "Party packages for teams and groups. Minimum 10 guests, advance booking required.",
     packages: [
-      { name: "Silver", price: "AED 169", detail: "2 house beverages + carving station" },
-      { name: "Gold", price: "AED 229", detail: "4 house beverages + carving station" },
-      { name: "Platinum", price: "AED 349", detail: "Unlimited house beverages for 2 hours + carving station" },
+      { name: "Merry Little Christmas", price: "AED 149", detail: "2 hours selected drinks · one bill" },
+      { name: "Christmas Social", price: "AED 179", detail: "3 hours selected drinks" },
+      { name: "Ultimate Christmas Party", price: "AED 249", detail: "4 hours selected drinks + sparkling welcome" },
     ],
-    image: "/images/site/event-christmas.webp",
+    image: "/images/gallery/posters/christmas-parties.webp",
+  },
+  {
+    title: "Christmas Day",
+    date: "Fri 25 Dec 2026 · 11am – 6pm",
+    copy: "Brunch buffet and drinks packages at your local.",
+    packages: [
+      { name: "Package 1", price: "AED 199", detail: "2 hours" },
+      { name: "Package 2", price: "AED 249", detail: "3 hours" },
+      { name: "Kids Package", price: "AED 99", detail: "Per child" },
+    ],
+    image: "/images/gallery/posters/christmas-day.webp",
   },
   {
     title: "Boxing Day",
-    date: "26 December",
-    copy: "Recover in style with a proper British spread and the football on.",
+    date: "Sat 26 Dec · 12pm – 8pm",
+    copy: "A 4-course Christmas menu with unlimited selected house beer, wine and soft drinks.",
     packages: [
-      { name: "3-Course Menu", price: "AED 145", detail: "Starter, main & pudding" },
-      { name: "2 Hours Drinks", price: "AED 249", detail: "Selected house beverages" },
+      { name: "Merry Christmas", price: "AED 199", detail: "2 hours unlimited + 4-course menu" },
+      { name: "Christmas at the Local", price: "AED 249", detail: "3 hours unlimited + 4-course menu" },
+      { name: "Little Santa", price: "AED 79", detail: "Children’s package, until 8pm" },
     ],
-    image: "/images/site/event-boxing-day.webp",
-  },
-  {
-    title: "Festive Roast Turkey",
-    date: "All December",
-    copy: "Slow-roasted with all the trimmings. Dine in or take away.",
-    packages: [
-      { name: "Single Portion", price: "AED 99", detail: "Served at the venue" },
-      { name: "Whole Turkey", price: "AED 550", detail: "Pre-order 24 hours ahead" },
-    ],
-    image: "/images/menu/sunday-roast-wide.webp",
+    image: "/images/gallery/posters/boxing-day.webp",
   },
   {
     title: "New Year’s Eve",
-    date: "31 December · Live DJ 12pm – 8pm",
-    copy: "Ring in the New Year at your local with a live DJ, bubbles and a packed bar.",
-    packages: [{ name: "Walk-ins welcome", price: "Book ahead", detail: "Tables fill fast on the 31st" }],
-    image: "/images/site/event-new-year.webp",
+    date: "Thu 31 Dec 2026 · 8pm – 4am",
+    copy: "DJ and live entertainment, party music, a midnight toast and the countdown.",
+    packages: [
+      { name: "NYE Celebration", price: "AED 199", detail: "2 hours unlimited selected drinks" },
+      { name: "NYE Party", price: "AED 299", detail: "3 hours unlimited selected drinks" },
+      { name: "Table for 4", price: "AED 999", detail: "Table package" },
+      { name: "Table for 6", price: "AED 1,499", detail: "Table package" },
+    ],
+    image: "/images/gallery/posters/new-years-eve.webp",
+  },
+  {
+    title: "Thanksgiving",
+    date: "Thanksgiving specials",
+    copy: "Traditional roast turkey with a pint of selected draught beer. Happy hour 5pm – 8pm: buy 2 Thanksgiving cocktails, get 1 free.",
+    packages: [
+      { name: "Turkey & Pint", price: "AED 129", detail: "Roast turkey + selected draught pint" },
+      { name: "Dessert Upgrade", price: "AED 20", detail: "Pumpkin pie or apple crumble" },
+      { name: "Draught Beers", price: "From AED 35", detail: "Happy hour, 5pm – 8pm" },
+    ],
+    image: "/images/gallery/posters/thanksgiving.webp",
+  },
+  {
+    title: "Whole Turkey Takeaway",
+    date: "1 – 30 Nov",
+    copy: "Slow-roasted, herb & butter-basted whole turkey (5–6kg) with stuffing, potatoes, veg, gravy and cranberry sauce. Order 48 hours ahead.",
+    packages: [
+      { name: "Whole Turkey", price: "AED 499", detail: "Pick-up or delivery" },
+      { name: "Delivery", price: "Free", detail: "Within 5km of Dubai Marina" },
+    ],
+    image: "/images/gallery/posters/turkey-takeaway.webp",
   },
 ];
 
@@ -285,16 +331,19 @@ export const TESTIMONIALS = [
   { name: "Ella M.", quote: "Service was quick, food was great, and the match atmosphere was unbeatable. Definitely the most authentic Dubai pub I’ve been to." },
 ];
 
-export type SocialPost = { url: string; caption: string; image: string; video?: string };
+export type SocialPost = { url: string; caption: string; image: string; w: number; h: number; video?: string; hold?: number };
 
+// Vertical reels and posters from the client's in-venue screen loop (NG SCREEN (VERTICAL).mp4),
+// plus the Gentle Pour post from the old site. Everything is 9:16 and shown whole (never cropped).
+const IG = "https://www.instagram.com/nellgwynnemarina/";
 export const SOCIAL_POSTS: SocialPost[] = [
-  { url: "https://www.instagram.com/p/DRhKWZxDHUq/", caption: "Introducing The Gentle Pour: 60% Guinness 0.0, 40% Guinness 4.2.", image: "/images/site/guinness-pour.webp" },
-  // venue reel supplied by the client (NELL VIDEO.mp4), reframed to 9:16 without cropping
-  { url: "https://www.instagram.com/nellgwynnemarina/", caption: "Live music, cocktails and match nights at Nell Gwynne.", image: "/video/nell-reel-poster.jpg", video: "/video/nell-reel.mp4" },
-  { url: "https://www.instagram.com/p/DSInxawCcMZ/", caption: "Christmas Day just got better. Silver, Gold & Platinum packages.", image: "/images/site/event-christmas.webp" },
-  { url: "https://www.instagram.com/p/DROUDkkkz6L/", caption: "Monday Quiz Night champions! Every Monday from 7pm.", image: "/images/site/offer-quiz-night.webp" },
-  { url: "https://www.instagram.com/p/DSKZJoFjLS_/", caption: "True British vibes, great food, cold drinks and every match live.", image: "/images/site/pub-interior.webp" },
-  { url: "https://www.instagram.com/p/DRBbkvzE49_/", caption: "Fight Night returns, live on our big screens.", image: "/images/site/offer-live-events.webp" },
+  { url: "https://www.instagram.com/p/DRhKWZxDHUq/", caption: "Introducing The Gentle Pour: 60% Guinness 0.0, 40% Guinness 4.2.", image: "/images/site/guinness-pour.webp", w: 1131, h: 1600 },
+  { url: IG, caption: "Inside Dubai Guide came for the Sunday roast. Here’s the verdict.", image: "/video/reels/dubai-guide-review.jpg", w: 540, h: 960, video: "/video/reels/dubai-guide-review.mp4", hold: 15000 },
+  { url: IG, caption: "Monday Night Live: speed quiz, music bingo and prizes. Every Monday, 8pm.", image: "/images/gallery/posters/monday-quiz.webp", w: 1080, h: 1920 },
+  { url: IG, caption: "Booths, darts, pool and big screens. Take a look around.", image: "/video/reels/inside-the-pub.jpg", w: 720, h: 1280, video: "/video/reels/inside-the-pub.mp4", hold: 8500 },
+  { url: IG, caption: "Ladies Night, Sunday to Wednesday: 50% off selected food, drinks from AED 20.", image: "/images/gallery/posters/ladies-night.webp", w: 1080, h: 1920 },
+  { url: IG, caption: "Speed Wagon, live every Wednesday from 9pm.", image: "/video/reels/speed-wagon.jpg", w: 720, h: 1280, video: "/video/reels/speed-wagon.mp4", hold: 10500 },
+  { url: IG, caption: "Christmas party packages for 2026 are here. Book your team in.", image: "/images/gallery/posters/christmas-parties.webp", w: 1080, h: 1920 },
 ];
 
 export const FEATURES = [

@@ -1,0 +1,146 @@
+.dialog {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  width: min(1100px, calc(100vw - 24px));
+  max-width: none;
+  max-height: calc(100dvh - 24px);
+  overflow: visible;
+  color: var(--parchment);
+}
+.dialog::backdrop {
+  background: rgba(6, 1, 1, 0.92);
+}
+.dialog[open] {
+  animation: pop 0.35s var(--ease);
+}
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open] {
+    animation: none;
+  }
+}
+.frame {
+  position: relative;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  max-height: calc(100dvh - 24px);
+  gap: 12px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--black);
+  color: var(--parchment);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 1px rgba(243, 233, 220, 0.45);
+  transition: background 0.25s, transform 0.25s var(--ease);
+}
+.close:hover {
+  background: var(--copper);
+  transform: rotate(90deg);
+}
+.close svg {
+  width: 20px;
+  height: 20px;
+}
+.media {
+  display: grid;
+  place-items: center;
+  min-height: 0;
+}
+/* whole photo, never cropped, fitted to the screen height */
+.img,
+.video {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: calc(100dvh - 130px);
+  object-fit: contain;
+  background: var(--black);
+  box-shadow: 0 0 0 6px var(--parchment), 8px 8px 0 6px var(--copper);
+}
+.tall .img,
+.tall .video {
+  max-height: calc(100dvh - 130px);
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 6px 4px 0;
+}
+.text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.text strong {
+  font-family: var(--ff-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.text span {
+  font-size: 14.5px;
+  color: rgba(243, 233, 220, 0.75);
+}
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: none;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+}
+.pager button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--copper);
+  background: transparent;
+  color: var(--parchment);
+  display: grid;
+  place-items: center;
+  transition: background 0.25s;
+}
+.pager button:hover {
+  background: var(--copper);
+}
+.pager svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 760px) {
+  .img,
+  .video {
+    max-height: calc(100dvh - 170px);
+    box-shadow: 0 0 0 4px var(--parchment), 5px 5px 0 4px var(--copper);
+  }
+  .bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pager {
+    justify-content: space-between;
+  }
+  .text strong {
+    font-size: 1.1rem;
+  }
+}

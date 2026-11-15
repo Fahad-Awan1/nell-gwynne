@@ -7,12 +7,23 @@ import { PageHero, ClosingBand } from "@/components/page/PageParts";
 import { Btn, Eyebrow, Rule, Watermark, Note } from "@/components/ui/bits";
 import Icon from "@/components/ui/Icon";
 import TornEdge from "@/components/paper/TornEdge";
+import { POSTERS, posterSrc } from "@/content/gallery";
 import s from "./offers.module.css";
 
 export const metadata: Metadata = {
   title: "Special Offers",
   description:
     "Weekly offers at Nell Gwynne Dubai Marina: daily Happy Hour 12–8pm, Taco Monday, Wings Tuesday, Ladies Night, Quiz Night, Sunday roast and festive packages.",
+};
+
+const LIVE = POSTERS.filter((p) => p.cat === "music");
+const LIVE_DAY: Record<string, string> = {
+  "monday-quiz": "Monday · 8pm",
+  "dj-el-chabou": "Tue & Sun",
+  "speed-wagon": "Wednesday · 9pm",
+  "cherry-bomb": "Thursday · 9:30pm",
+  "dj-val": "Thu & Sat",
+  "jack-the-hat": "Friday",
 };
 
 export default function OffersPage() {
@@ -111,6 +122,44 @@ export default function OffersPage() {
         </div>
       </section>
 
+      {/* Live music & DJs */}
+      <section className="section section--paper textured" aria-labelledby="live-title">
+        <TornEdge position="top" color="var(--parchment)" seed={105} />
+        <Watermark style={{ right: "-2%", top: "8%" }}>Live</Watermark>
+        <div className="wrap">
+          <div className={s.eventsHead}>
+            <div>
+              <Eyebrow>Live Music &amp; DJs</Eyebrow>
+              <h2 id="live-title" className="display display--md" data-reveal="up">
+                <span className="line">Bands, DJs</span>
+                <span className="sub">&amp; a quiz worth winning</span>
+              </h2>
+              <Rule />
+            </div>
+            <p className="lede" data-reveal="up" data-delay="0.1">
+              Something on almost every night of the week. Pull up a stool, the music starts when the match ends.
+            </p>
+          </div>
+          <div className={s.live} data-reveal="stagger">
+            {LIVE.map((p, i) => (
+              <figure key={p.slug} className={s.livePoster} style={{ rotate: i % 2 ? "1.6deg" : "-1.6deg" }}>
+                <span className={s.livePin} aria-hidden="true" />
+                <Image src={posterSrc(p.slug)} alt={p.alt} width={1080} height={1920} sizes="(max-width: 760px) 60vw, (max-width: 1080px) 30vw, 200px" />
+                <figcaption>
+                  <strong>{p.title}</strong>
+                  <span>{LIVE_DAY[p.slug]}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+          <div className={s.liveMore}>
+            <Btn href="/gallery" variant="dark" icon="arrow">
+              See the Pub Wall
+            </Btn>
+          </div>
+        </div>
+      </section>
+
       {/* Seasonal events */}
       <section className="section section--mahogany textured" aria-labelledby="events-title">
         <TornEdge position="top" color="var(--mahogany)" seed={107} />
@@ -125,7 +174,7 @@ export default function OffersPage() {
               </h2>
             </div>
             <p className="lede" data-reveal="up" data-delay="0.1">
-              Christmas Day, Boxing Day, New Year’s Eve and the festive roast turkey. Pre-booking is open now. Call{" "}
+              Christmas parties, Christmas Day, Boxing Day, New Year’s Eve, Thanksgiving and whole turkey takeaway. Pre-booking is open now. Call{" "}
               <a href={SITE.phoneHref} className={s.link}>
                 {SITE.phone}
               </a>{" "}
@@ -136,7 +185,7 @@ export default function OffersPage() {
             {EVENTS.map((e) => (
               <article key={e.title} className={s.event}>
                 <div className={s.eventImg}>
-                  <Image src={e.image} alt={`${e.title} at Nell Gwynne`} width={600} height={600} sizes="(max-width: 760px) 90vw, 300px" />
+                  <Image src={e.image} alt={`${e.title} poster, Nell Gwynne`} width={1080} height={1920} sizes="(max-width: 760px) 82vw, (max-width: 1080px) 45vw, 380px" />
                 </div>
                 <div className={s.eventBody}>
                   <span className={s.eventDate}>

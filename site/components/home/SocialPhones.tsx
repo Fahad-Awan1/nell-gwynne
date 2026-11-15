@@ -14,6 +14,7 @@ export default function SocialPhones() {
   const [active, setActive] = useState(1);
   const [paused, setPaused] = useState(false);
   const [onScreen, setOnScreen] = useState(false);
+  const [sound, setSound] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
 
   // only auto-rotate while the phones are actually visible
@@ -25,12 +26,12 @@ export default function SocialPhones() {
     return () => io.disconnect();
   }, []);
 
-  // a video post stays in front for one full play (~10.5s); photo posts for 3s
+  // a reel stays in front for one play (capped at 15s); posters for 3s. With sound on, it stays until switched.
   useEffect(() => {
-    if (paused || !onScreen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setTimeout(() => setActive((a) => (a + 1) % n), SOCIAL_POSTS[active].video ? 10500 : 3000);
+    if (paused || sound || !onScreen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = window.setTimeout(() => setActive((a) => (a + 1) % n), SOCIAL_POSTS[active].hold ?? 3000);
     return () => window.clearTimeout(t);
-  }, [paused, onScreen, n, active]);
+  }, [paused, sound, onScreen, n, active]);
 
   // play the reel only while it is the front phone and on screen; otherwise pause (saves data and battery)
   const videos = useRef<(HTMLVideoElement | null)[]>([]);
@@ -44,6 +45,17 @@ export default function SocialPhones() {
       } else v.pause();
     });
   }, [active, onScreen]);
+
+  // sound only ever plays on the front reel, and only after the visitor asks for it
+  useEffect(() => {
+    videos.current.forEach((v, i) => {
+      if (v) v.muted = !(sound && i === active);
+    });
+  }, [sound, active]);
+  useEffect(() => {
+    if (!onScreen) setSound(false);
+  }, [onScreen]);
+  const frontIsReel = Boolean(SOCIAL_POSTS[active].video);
 
   // position of each phone relative to the active one: -2..2
   const offset = (i: number) => {
@@ -94,17 +106,19 @@ export default function SocialPhones() {
               const hidden = Math.abs(d) > 1;
               return (
                 <a
-                  key={p.url}
+                  key={p.image}
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${s.phone} ${d === 0 ? s.front : ""}`}
                   style={{
-                    transform: `translateX(${d * 62}%) translateZ(${d === 0 ? 0 : -160}px) rotateY(${d * -24}deg) scale(${d === 0 ? 1 : 0.84})`,
+                    transform: `translateX(calc(var(--step) * ${d})) translateZ(${d === 0 ? 0 : -160}px) rotateY(${d * -24}deg) scale(${d === 0 ? 1 : "var(--side)"})`,
                     opacity: hidden ? 0 : d === 0 ? 1 : 0.78,
+                    visibility: hidden ? "hidden" : "visible",
                     zIndex: 10 - Math.abs(d),
                     pointerEvents: hidden ? "none" : "auto",
                   }}
+                  aria-hidden={hidden || undefined}
                   tabIndex={hidden ? -1 : 0}
                   aria-label={`Instagram post: ${p.caption}`}
                   onClick={(e) => {
@@ -135,7 +149,7 @@ export default function SocialPhones() {
                         aria-label={p.caption}
                       />
                     ) : (
-                      <Image src={p.image} alt="" width={600} height={800} sizes="260px" />
+                      <Image src={p.image} alt="" width={p.w} height={p.h} sizes="260px" />
                     )}
                     {p.video && <span className={s.reelTag}>Reel</span>}
                   </span>
@@ -144,10 +158,22 @@ export default function SocialPhones() {
               );
             })}
           </div>
-          <div className={s.dots} role="tablist" aria-label="Choose post">
-            {SOCIAL_POSTS.map((p, i) => (
-              <button key={p.url} role="tab" aria-selected={i === active} aria-label={`Post ${i + 1}`} className={i === active ? s.dotOn : ""} onClick={() => setActive(i)} />
-            ))}
+          <div className={s.controls}>
+            <div className={s.dots} role="tablist" aria-label="Choose post">
+              {SOCIAL_POSTS.map((p, i) => (
+                <button key={p.image} role="tab" aria-selected={i === active} aria-label={`Post ${i + 1}`} className={i === active ? s.dotOn : ""} onClick={() => setActive(i)} />
+              ))}
+            </div>
+            <button
+              type="button"
+              className={`${s.sound} ${frontIsReel ? "" : s.soundOff}`}
+              aria-pressed={sound}
+              disabled={!frontIsReel}
+              onClick={() => setSound((v) => !v)}
+            >
+              <Icon name={sound ? "sound" : "mute"} />
+              {sound ? "Sound on" : "Sound off"}
+            </button>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { PageHero, ClosingBand } from "@/components/page/PageParts";
 import { Btn, Eyebrow, Rule, Watermark, Note } from "@/components/ui/bits";
 import Icon, { type IconName } from "@/components/ui/Icon";
 import TornEdge from "@/components/paper/TornEdge";
+import PosterFeature from "@/components/page/PosterFeature";
 import s from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -142,6 +143,39 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Nell's Garden (from the in-venue screen posters) */}
+      <PosterFeature
+        id="garden-title"
+        eyebrow="Outdoor Dining"
+        title="Nell’s Garden"
+        sub="Pet friendly"
+        poster="/images/gallery/posters/nells-garden.webp"
+        alt="Nell’s Garden poster: outdoor dining, pet friendly"
+        tone="black"
+        seed={96}
+        watermark="Garden"
+      >
+        <p className="lede" data-reveal="up" data-delay="0.1">
+          Take the roast outside. Nell’s Garden is our outdoor dining spot, and four-legged friends are welcome to join you.
+        </p>
+        <ul data-reveal="stagger">
+          <li>
+            <Icon name="food" /> Outdoor dining
+          </li>
+          <li>
+            <Icon name="beer" /> Pints in the fresh air
+          </li>
+          <li>
+            <Icon name="star" /> Pet friendly
+          </li>
+        </ul>
+        <div className="btns" data-reveal="up" data-delay="0.2">
+          <Btn href={SITE.booking} iconLeft="calendar">
+            Book a Table
+          </Btn>
+        </div>
+      </PosterFeature>
+
       {/* A closer look inside */}
       <section className="section section--paper textured" aria-labelledby="gal-title">
         <TornEdge position="top" color="var(--parchment)" seed={97} />
@@ -162,9 +196,14 @@ export default function AboutPage() {
             ))}
           </div>
           <div className={s.center} style={{ marginTop: 56, marginBottom: 0 }}>
-            <Btn href={SITE.social.instagram} variant="dark" iconLeft="instagram">
-              More on Instagram
-            </Btn>
+            <div className="btns" style={{ justifyContent: "center" }}>
+              <Btn href="/gallery" variant="dark" icon="arrow">
+                See the Gallery
+              </Btn>
+              <Btn href={SITE.social.instagram} variant="dark" iconLeft="instagram">
+                More on Instagram
+              </Btn>
+            </div>
           </div>
         </div>
       </section>

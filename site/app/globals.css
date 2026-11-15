@@ -482,8 +482,8 @@ label {
 .stamp strong {
   display: block;
   font-size: 2.4rem;
-  line-height: 0.9;
-  margin: 2px 0;
+  line-height: 1;
+  margin: 0 0 2px;
   color: var(--copper);
 }
 .stamp small {

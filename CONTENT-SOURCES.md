@@ -48,6 +48,72 @@ The PDF is `Nell Gwynne – Brand Asset .pdf`, supplied by the client.
 - **Tagline:** "An Authentic British Experience · Since 2011", and the year 2011.
 - **Fonts:** headings now use Gemola and body text uses Baskervville, chosen by the client. These replace the PDF's Cinzel and Open Sauce.
 
+## B2. From the in-venue screen loop ("NG SCREEN (VERTICAL).mp4")
+
+The client supplied this video: 6:09 long, 1080×1920. It contains 59 slides and clips, all cut out without cropping:
+
+- **6 reels** in `site/public/video/reels/`:
+  - Inside Dubai Guide review
+  - Monday Night Live launch
+  - A look around the pub
+  - Speed Wagon
+  - Thursday live
+  - F1 × Heineken
+- **30 posters** in `site/public/images/gallery/posters/`:
+  - weekly offers
+  - live music & DJs
+  - 2026 festive packages
+  - Nell's Garden
+  - delivery
+  - What's On Awards
+  - map
+  - Carlsberg × UEFA
+- **8 venue stills** in `site/public/images/gallery/pub/`.
+
+**Where this content is used**
+
+- **New Gallery page** (`/gallery`):
+  - reels in phone frames
+  - "Inside the Pub" polaroids
+  - "The Pub Wall" of posters with filters
+  - a lightbox that plays reels with sound
+- **Home, "Fresh from the Bar":** 3 vertical reels and 3 posters replace the earlier landscape video. The Gentle Pour post is kept.
+- **Special Offers:**
+  - a new Live Music & DJs row
+  - the Seasonal Events cards now use the 2026 posters, shown whole
+- **About:** a new Nell's Garden section (outdoor dining, pet friendly).
+- **Menu:** a new delivery band (noon Food, talabat, Deliveroo).
+
+**Data updated from the newer posters**
+
+| Item | Before (old site) | Now (poster) |
+|---|---|---|
+| Quiz Night | Monday from 7pm | Monday Night Live, 8pm |
+| Taco Night | AED 49 combo | Tacos AED 9 each (combo kept) |
+| Wings Night | AED 49 combo | Wings AED 3 each (combo kept) |
+| Sunday Roast | BOGO AED 129, all day | AED 89, 11am–2pm, with AED 1 pints (first 50) |
+| Weekend Breakfast | Sat–Sun 9am–3pm, AED 45 | Everyday Breakfast from AED 49 (Mon–Thu 11am, Fri–Sun 8am) |
+| Lunch | 12–4:30pm, AED 45 | Lunch Deal 11am–4:30pm, AED 49 |
+| Ladies Night price | "AED 20 drinks" | "Drinks from AED 20" |
+| Seasonal events | 2025 Christmas, Boxing Day, Turkey, NYE | 2026 Christmas parties, Christmas Day, Boxing Day, NYE, Thanksgiving, Whole Turkey Takeaway |
+
+**Added to the week:**
+
+- 50% off for hospitality workers (Mon & Tue, 7pm–3am)
+- DJ El Chabou (Tue & Sun)
+- Speed Wagon (Wed 9pm)
+- Cherry Bomb (Thu 9:30pm)
+- DJ Val (Thu & Sat)
+- Jack the Hat (Fri)
+- Weekend Roast (12–6pm)
+- 25 Before 5
+- Wine Bottle Deal
+- Board Games every day
+
+**Captions I wrote for the Gallery and Home** (please review): reel titles and captions, polaroid captions, and section headings ("Press Play", "Pull Up a Stool", "The Pub Wall", "Bands, DJs & a quiz worth winning", "Craving Nell's?").
+
+**Removed:** the earlier landscape-to-portrait reel (`nell-reel.mp4`), which the vertical reels replace.
+
 ## C. New additions (please review)
 
 **Headings and short decorative lines**

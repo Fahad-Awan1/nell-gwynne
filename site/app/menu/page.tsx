@@ -6,6 +6,7 @@ import { PageHero, ClosingBand } from "@/components/page/PageParts";
 import { Eyebrow, Watermark } from "@/components/ui/bits";
 import Icon from "@/components/ui/Icon";
 import TornEdge from "@/components/paper/TornEdge";
+import PosterFeature from "@/components/page/PosterFeature";
 import s from "./menu.module.css";
 
 export const metadata: Metadata = {
@@ -59,6 +60,29 @@ export default function MenuPage() {
           </div>
         </div>
       </section>
+
+      {/* Delivery (from the in-venue screen posters) */}
+      <PosterFeature
+        id="delivery-title"
+        eyebrow="Delivered to Your Door"
+        title="Craving Nell’s?"
+        sub="Pub classics at your doorstep"
+        poster="/images/gallery/posters/delivery.webp"
+        alt="Delivery poster: order Nell Gwynne on noon Food, talabat and Deliveroo"
+        tone="paper"
+        seed={113}
+        watermark="Delivery"
+        flip
+      >
+        <p className="lede" data-reveal="up" data-delay="0.1">
+          Skip the wait. Great food, pub classics and the same great taste at home. Search “Nell Gwynne” on your favourite app.
+        </p>
+        <ul className={s.apps} data-reveal="stagger">
+          <li>noon Food</li>
+          <li>talabat</li>
+          <li>Deliveroo</li>
+        </ul>
+      </PosterFeature>
 
       <ClosingBand title={["Hungry Yet?"]} sub="Kitchen open daily from 9am" />
       <MotionRoot />
