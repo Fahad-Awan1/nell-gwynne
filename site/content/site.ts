@@ -216,7 +216,8 @@ export const EVENTS = [
       { name: "Christmas Social", price: "AED 179", detail: "3 hours selected drinks" },
       { name: "Ultimate Christmas Party", price: "AED 249", detail: "4 hours selected drinks + sparkling welcome" },
     ],
-    image: "/images/gallery/posters/christmas-parties.webp",
+    // the source poster is cut off on the right, so a venue photo is used until the original arrives
+    image: "/images/gallery/pub/booths.webp",
   },
   {
     title: "Christmas Day",
@@ -343,7 +344,7 @@ export const SOCIAL_POSTS: SocialPost[] = [
   { url: IG, caption: "Booths, darts, pool and big screens. Take a look around.", image: "/video/reels/inside-the-pub.jpg", w: 720, h: 1280, video: "/video/reels/inside-the-pub.mp4", hold: 8500 },
   { url: IG, caption: "Ladies Night, Sunday to Wednesday: 50% off selected food, drinks from AED 20.", image: "/images/gallery/posters/ladies-night.webp", w: 1080, h: 1920 },
   { url: IG, caption: "Speed Wagon, live every Wednesday from 9pm.", image: "/video/reels/speed-wagon.jpg", w: 720, h: 1280, video: "/video/reels/speed-wagon.mp4", hold: 10500 },
-  { url: IG, caption: "Christmas party packages for 2026 are here. Book your team in.", image: "/images/gallery/posters/christmas-parties.webp", w: 1080, h: 1920 },
+  { url: IG, caption: "Christmas Day 2026: brunch buffet and drinks packages from AED 199.", image: "/images/gallery/posters/christmas-day.webp", w: 1080, h: 1920 },
 ];
 
 export const FEATURES = [

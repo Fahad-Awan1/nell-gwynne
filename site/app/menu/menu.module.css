@@ -105,8 +105,10 @@
 }
 .apps li {
   padding: 10px 18px;
-  border: 1px solid var(--copper);
-  background: transparent;
+  border: 1px solid var(--black);
+  background: var(--black);
+  color: var(--parchment);
+  box-shadow: 3px 3px 0 var(--copper);
   font-weight: 700;
   font-size: 13px !important;
   letter-spacing: 0.14em;

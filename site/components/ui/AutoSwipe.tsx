@@ -40,7 +40,7 @@ export default function AutoSwipe({ interval = 1000, maxWidth = 760, children, .
 
     const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting), { threshold: 0.4 });
     io.observe(el);
-    const pause = () => (pausedUntil = Date.now() + 4000);
+    const pause = () => (pausedUntil = Date.now() + 8000);
     el.addEventListener("pointerdown", pause, { passive: true });
     el.addEventListener("touchstart", pause, { passive: true });
     el.addEventListener("wheel", pause, { passive: true });

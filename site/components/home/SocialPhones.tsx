@@ -26,10 +26,10 @@ export default function SocialPhones() {
     return () => io.disconnect();
   }, []);
 
-  // a reel stays in front for one play (capped at 15s); posters for 3s. With sound on, it stays until switched.
+  // a reel stays in front for one play (capped at 15s); posters for 4s. With sound on, it stays until switched.
   useEffect(() => {
     if (paused || sound || !onScreen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const t = window.setTimeout(() => setActive((a) => (a + 1) % n), SOCIAL_POSTS[active].hold ?? 3000);
+    const t = window.setTimeout(() => setActive((a) => (a + 1) % n), SOCIAL_POSTS[active].hold ?? 4000);
     return () => window.clearTimeout(t);
   }, [paused, sound, onScreen, n, active]);
 

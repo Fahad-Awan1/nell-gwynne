@@ -185,7 +185,7 @@ export default function OffersPage() {
             {EVENTS.map((e) => (
               <article key={e.title} className={s.event}>
                 <div className={s.eventImg}>
-                  <Image src={e.image} alt={`${e.title} poster, Nell Gwynne`} width={1080} height={1920} sizes="(max-width: 760px) 82vw, (max-width: 1080px) 45vw, 380px" />
+                  <Image src={e.image} alt={`${e.title} at Nell Gwynne`} width={1080} height={1920} sizes="(max-width: 760px) 82vw, (max-width: 1080px) 45vw, 380px" />
                 </div>
                 <div className={s.eventBody}>
                   <span className={s.eventDate}>

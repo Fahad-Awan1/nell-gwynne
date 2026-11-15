@@ -92,7 +92,8 @@ export const POSTERS: Poster[] = [
   p("cherry-bomb", "Cherry Bomb", "music", "Cherry Bomb poster: every Thursday at 9:30pm"),
   p("dj-val", "DJ Val", "music", "DJ Val poster: every Thursday and Saturday"),
   p("jack-the-hat", "Jack the Hat", "music", "Jack the Hat poster: live every Friday"),
-  p("christmas-parties", "Christmas Party Packages 2026", "seasonal", "Christmas party packages 2026 poster"),
+  // "christmas-parties" is not shown: the poster in the source video is cut off on its right edge.
+  // Add it back once the client sends the original file.
   p("christmas-day", "Christmas Day 2026", "seasonal", "Christmas Day brunch buffet and drinks packages poster"),
   p("boxing-day", "Boxing Day 2026", "seasonal", "Boxing Day packages poster"),
   p("new-years-eve", "New Year’s Eve 2027", "seasonal", "New Year’s Eve 2027 packages poster"),

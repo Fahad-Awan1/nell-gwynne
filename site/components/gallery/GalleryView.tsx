@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { POSTERS, POSTER_CATS, PUB_PHOTOS, REELS, posterSrc, type PosterCat } from "@/content/gallery";
 import { SITE } from "@/content/site";
 import { Btn, Eyebrow, Rule, Watermark } from "@/components/ui/bits";
@@ -12,9 +12,68 @@ import s from "./GalleryView.module.css";
 
 const TILTS = [-2.2, 1.6, -1.1, 2, -1.6, 1.2, -0.8, 1.8];
 
+/** Number of photo columns for the current screen (matches the CSS breakpoints). */
+function useColumns() {
+  const [cols, setCols] = useState(4);
+  useEffect(() => {
+    const qs = [window.matchMedia("(max-width: 760px)"), window.matchMedia("(max-width: 1080px)")];
+    const set = () => setCols(qs[0].matches ? 2 : qs[1].matches ? 3 : 4);
+    set();
+    qs.forEach((q) => q.addEventListener("change", set));
+    return () => qs.forEach((q) => q.removeEventListener("change", set));
+  }, []);
+  return cols;
+}
+
+/**
+ * Deal photos into columns so the columns end level (no empty gaps): first onto the
+ * shortest column, then swap photos between columns while that evens the heights out.
+ * Every photo keeps its natural shape (nothing is cropped).
+ */
+function balance<T extends { w: number; h: number }>(items: T[], cols: number) {
+  const size = (it: T) => it.h / it.w + 0.34; // photo + caption strip + gap, relative to column width
+  const groups: number[][] = Array.from({ length: cols }, () => []);
+  const height = new Array(cols).fill(0);
+  items.forEach((it, i) => {
+    const c = height.indexOf(Math.min(...height));
+    groups[c].push(i);
+    height[c] += size(items[i]);
+  });
+  const spread = () => Math.max(...height) - Math.min(...height);
+  for (let pass = 0; pass < 40; pass++) {
+    const pick: { best: [number, number, number, number, number] | null } = { best: null }; // gain, colA, idxA, colB, idxB
+    for (let a = 0; a < cols; a++)
+      for (let b = 0; b < cols; b++) {
+        if (a === b) continue;
+        groups[a].forEach((ia, ka) =>
+          groups[b].forEach((ib, kb) => {
+            const d = size(items[ia]) - size(items[ib]);
+            if (d <= 0) return;
+            const before = spread();
+            height[a] -= d;
+            height[b] += d;
+            const gain = before - spread();
+            height[a] += d;
+            height[b] -= d;
+            if (gain > 1e-6 && (!pick.best || gain > pick.best[0])) pick.best = [gain, a, ka, b, kb];
+          }),
+        );
+      }
+    if (!pick.best) break;
+    const [, a, ka, b, kb] = pick.best;
+    const d = size(items[groups[a][ka]]) - size(items[groups[b][kb]]);
+    [groups[a][ka], groups[b][kb]] = [groups[b][kb], groups[a][ka]];
+    height[a] -= d;
+    height[b] += d;
+  }
+  return groups.map((g) => g.sort((x, y) => x - y).map((i) => ({ item: items[i], i })));
+}
+
 export default function GalleryView() {
   const [cat, setCat] = useState<PosterCat | "all">("all");
   const [box, setBox] = useState<{ items: MediaItem[]; index: number } | null>(null);
+  const cols = useColumns();
+  const photoCols = useMemo(() => balance(PUB_PHOTOS, cols), [cols]);
 
   const reelItems: MediaItem[] = useMemo(
     () => REELS.map((r) => ({ type: "video", src: r.src, poster: r.poster, alt: r.title, title: r.title, caption: r.caption, w: 720, h: 1280 })),
@@ -92,18 +151,22 @@ export default function GalleryView() {
               Stone walls, big screens and the best seat for the match. Tap any photo to see it larger.
             </p>
           </div>
-          <div className={s.masonry}>
-            {PUB_PHOTOS.map((ph, i) => (
-              <button
-                key={ph.src}
-                className={`print ${s.photo}`}
-                style={{ rotate: `${TILTS[i % TILTS.length]}deg` }}
-                onClick={() => setBox({ items: photoItems, index: i })}
-                aria-label={`View photo: ${ph.caption}`}
-              >
-                <Image src={ph.src} alt={ph.alt} width={ph.w} height={ph.h} sizes="(max-width: 620px) 46vw, (max-width: 1080px) 31vw, 280px" />
-                <span className="print__cap">{ph.caption}</span>
-              </button>
+          <div className={s.masonry} style={{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` }}>
+            {photoCols.map((col, c) => (
+              <div key={c} className={s.col}>
+                {col.map(({ item: ph, i }) => (
+                  <button
+                    key={ph.src}
+                    className={`print ${s.photo}`}
+                    style={{ rotate: `${TILTS[i % TILTS.length]}deg` }}
+                    onClick={() => setBox({ items: photoItems, index: i })}
+                    aria-label={`View photo: ${ph.caption}`}
+                  >
+                    <Image src={ph.src} alt={ph.alt} width={ph.w} height={ph.h} sizes="(max-width: 760px) 46vw, (max-width: 1080px) 31vw, 280px" />
+                    <span className="print__cap">{ph.caption}</span>
+                  </button>
+                ))}
+              </div>
             ))}
           </div>
         </div>

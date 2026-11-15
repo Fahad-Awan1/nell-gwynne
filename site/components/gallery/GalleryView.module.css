@@ -100,14 +100,19 @@
 
 /* ---------- inside the pub: masonry of polaroids (natural shapes, no cropping) ---------- */
 .masonry {
-  columns: 4 240px;
-  column-gap: clamp(20px, 2.4vw, 34px);
+  display: grid;
+  gap: clamp(20px, 2.4vw, 34px);
+  align-items: start;
+}
+.col {
+  display: grid;
+  gap: clamp(22px, 2.6vw, 36px);
+  min-width: 0;
 }
 .photo {
   display: block;
   width: 100%;
-  margin: 0 0 clamp(22px, 2.6vw, 36px);
-  break-inside: avoid;
+  margin: 0;
   border: 0;
   cursor: pointer;
   transition: rotate 0.45s var(--ease), translate 0.45s var(--ease);
@@ -155,10 +160,14 @@
   border-color: var(--parchment);
   box-shadow: 3px 3px 0 var(--copper);
 }
+/* flex rows so an unfinished last row sits centred instead of leaving a hole */
 .wall {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(26px, 3vw, 40px) clamp(18px, 2.4vw, 32px);
+  --n: 4;
+  --gx: clamp(18px, 2.4vw, 32px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(26px, 3vw, 40px) var(--gx);
   animation: wallIn 0.5s var(--ease);
 }
 @keyframes wallIn {
@@ -175,6 +184,7 @@
 .poster {
   position: relative;
   display: block;
+  flex: 0 0 calc((100% - (var(--n) - 1) * var(--gx)) / var(--n));
   padding: 0;
   border: 0;
   background: var(--black);
@@ -217,7 +227,7 @@
     gap: 16px;
   }
   .wall {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    --n: 3;
   }
 }
 @media (max-width: 760px) {
@@ -238,15 +248,15 @@
     scroll-snap-align: center;
   }
   .masonry {
-    columns: 2;
-    column-gap: 14px;
+    gap: 14px;
   }
-  .photo {
-    margin-bottom: 18px;
+  .col {
+    gap: 18px;
   }
   .wall {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px 14px;
+    --n: 2;
+    --gx: 14px;
+    row-gap: 22px;
   }
   .chips {
     flex-wrap: nowrap;
@@ -257,5 +267,13 @@
   }
   .chip {
     flex: none;
+  }
+}
+
+/* mobile chips: same size as the menu page filters */
+@media (max-width: 760px) {
+  .chip {
+    padding: 8px 11px;
+    font-size: 11px;
   }
 }

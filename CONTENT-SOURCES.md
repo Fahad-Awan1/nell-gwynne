@@ -114,6 +114,8 @@ The client supplied this video: 6:09 long, 1080×1920. It contains 59 slides and
 
 **Removed:** the earlier landscape-to-portrait reel (`nell-reel.mp4`), which the vertical reels replace.
 
+**Not shown: the Christmas Party Packages 2026 poster.** The poster in the source video is cut off on its right edge ("…CHRISTMAS PART", "…SPARKLING WELCOM"), and this is true in every frame. Its file is kept (`posters/christmas-parties.webp`) and its package details are written out as text on the Special Offers card, which uses a venue photo instead. Send the original poster file and it can go back up.
+
 ## C. New additions (please review)
 
 **Headings and short decorative lines**

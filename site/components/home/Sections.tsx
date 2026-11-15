@@ -103,7 +103,7 @@ export function OffersWall() {
           </p>
         </div>
 
-        <AutoSwipe className={s.posters} data-reveal="stagger" interval={1200}>
+        <AutoSwipe className={s.posters} data-reveal="stagger" interval={4000}>
           {OFFERS.map((o, i) => (
             <Link key={o.slug} href={`/special-offers#${o.slug}`} className={s.poster} style={{ rotate: `${[-2.5, 1.5, -1, 2, -1.8, 1.2][i % 6]}deg` }}>
               <div className={s.posterImg}>
@@ -173,7 +173,7 @@ export function Testimonials() {
             <span className="sub">What our guests are saying</span>
           </h2>
         </div>
-        <AutoSwipe className={s.notes} interval={1000}>
+        <AutoSwipe className={s.notes} interval={5000}>
           {TESTIMONIALS.map((t, i) => (
             <figure key={t.name} className={s.review} data-reveal="news" data-rot={i % 2 ? "4" : "-4"} data-delay={(i * 0.08).toFixed(2)} style={{ rotate: `${[-2, 1.5, -1, 2.2][i]}deg` }}>
               <span className={s.pin} aria-hidden="true" />
