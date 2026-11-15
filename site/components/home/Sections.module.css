@@ -600,3 +600,13 @@
 .cA :global(.print__cap) {
   display: none;
 }
+
+/* tablets: drop the front photo a little so it clears "The Full English" caption above it */
+@media (min-width: 761px) and (max-width: 980px) {
+  .cC.cC {
+    bottom: -40px;
+  }
+  .collage {
+    margin-bottom: 48px;
+  }
+}

@@ -426,22 +426,33 @@ label {
   position: relative;
   min-width: 0;
 }
+/* A flex column, so the photo always fits inside the print and never runs into the caption strip.
+   (Safari does not resolve height:100% inside an aspect-ratio box and let photos cover captions.) */
 .print {
+  display: flex;
+  flex-direction: column;
   background: var(--parchment);
   padding: 12px 12px 46px;
   box-shadow: 0 18px 40px rgba(var(--black-rgb), 0.45), 0 2px 0 rgba(var(--black-rgb), 0.25);
 }
 .print img {
+  display: block;
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: saturate(0.92) contrast(1.04);
 }
+/* the caption sits on its own parchment strip, above the photo, so it is always readable */
 .print__cap {
   position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 13px;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 17px 14px 13px;
+  background: var(--parchment);
   font-family: var(--ff-body);
   font-weight: 600;
   font-size: 12.5px;
@@ -638,9 +649,10 @@ label {
     padding: 9px 9px 34px;
   }
   .print__cap {
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 11px 10px 10px;
     font-size: 10.5px;
     letter-spacing: 0.07em;
   }

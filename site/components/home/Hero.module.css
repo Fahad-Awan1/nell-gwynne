@@ -261,3 +261,9 @@
     display: none;
   }
 }
+
+/* the front photo overlaps the right of this caption strip: keep the strip only as wide as its text */
+.main :global(.print__cap) {
+  right: auto;
+  padding-right: 18px;
+}
