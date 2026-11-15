@@ -389,3 +389,38 @@
     margin-top: 24px;
   }
 }
+
+/* extra details on an event card with a short (landscape) image */
+.eventExtra {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+  justify-items: start;
+}
+.perks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.perks li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mahogany);
+}
+.perks svg {
+  width: 18px;
+  height: 18px;
+  color: var(--copper);
+}
+.eventBody .eventNote {
+  font-size: 12.5px;
+  font-style: italic;
+  color: rgba(6, 1, 1, 0.6);
+}

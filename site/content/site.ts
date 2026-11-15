@@ -216,8 +216,14 @@ export const EVENTS = [
       { name: "Christmas Social", price: "AED 179", detail: "3 hours selected drinks" },
       { name: "Ultimate Christmas Party", price: "AED 249", detail: "4 hours selected drinks + sparkling welcome" },
     ],
-    // the source poster is cut off on the right, so a venue photo is used until the original arrives
-    image: "/images/gallery/pub/booths.webp",
+    // top of the client's poster (title, dates, crowd). Its lower half is cut off in the source
+    // video, so the packages are written out as text instead.
+    image: "/images/gallery/christmas-parties-top.webp",
+    w: 1080,
+    h: 800,
+    perks: ["Festive atmosphere", "Add-ons available", "Group offers available"],
+    note: "Advance booking required. Selected drinks only; premium products may be excluded. Final menu and drinks confirmed at booking.",
+    cta: "Book Your Christmas Party",
   },
   {
     title: "Christmas Day",

@@ -184,8 +184,8 @@ export default function OffersPage() {
           <div className={s.events} data-reveal="stagger">
             {EVENTS.map((e) => (
               <article key={e.title} className={s.event}>
-                <div className={s.eventImg}>
-                  <Image src={e.image} alt={`${e.title} at Nell Gwynne`} width={1080} height={1920} sizes="(max-width: 760px) 82vw, (max-width: 1080px) 45vw, 380px" />
+                <div className={s.eventImg} style={"w" in e ? { aspectRatio: `${e.w} / ${e.h}` } : undefined}>
+                  <Image src={e.image} alt={`${e.title} at Nell Gwynne`} width={"w" in e ? e.w : 1080} height={"h" in e ? e.h : 1920} sizes="(max-width: 760px) 82vw, (max-width: 1080px) 45vw, 380px" />
                 </div>
                 <div className={s.eventBody}>
                   <span className={s.eventDate}>
@@ -204,6 +204,21 @@ export default function OffersPage() {
                       </li>
                     ))}
                   </ul>
+                  {"perks" in e && e.perks && (
+                    <div className={s.eventExtra}>
+                      <ul className={s.perks}>
+                        {e.perks.map((p) => (
+                          <li key={p}>
+                            <Icon name="star" /> {p}
+                          </li>
+                        ))}
+                      </ul>
+                      <p className={s.eventNote}>{e.note}</p>
+                      <Btn href={SITE.booking} size="sm" variant="dark" iconLeft="calendar">
+                        {e.cta}
+                      </Btn>
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
