@@ -1,10 +1,14 @@
+/* Call sits bottom-left, WhatsApp bottom-right, on one line */
 .dock {
   position: fixed;
-  right: max(16px, env(safe-area-inset-right));
+  left: 0;
+  right: 0;
   bottom: max(18px, env(safe-area-inset-bottom));
   z-index: 60;
-  display: grid;
-  gap: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right));
   pointer-events: none;
 }
 .fab {
@@ -36,18 +40,19 @@
   }
 }
 
-/* brand call button: pub black, double copper ring like the site's stamps */
+/* brand call button: copper fill with a parchment ring and a black outer ring,
+   so it stands out on black, mahogany and parchment sections alike */
 .call {
-  background: var(--black);
+  background: var(--copper);
   color: var(--parchment);
-  box-shadow: 0 0 0 2px var(--copper), 0 0 0 5px var(--black), 0 0 0 6px rgba(137, 89, 54, 0.8), 0 12px 24px rgba(6, 1, 1, 0.45);
+  box-shadow: 0 0 0 2px var(--parchment), 0 0 0 4px var(--black), 0 12px 24px rgba(6, 1, 1, 0.5);
 }
 .phoneIcon {
   width: 24px;
   height: 24px;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.7;
+  stroke-width: 1.9;
   stroke-linejoin: round;
   transform-origin: 50% 50%;
   animation: ring 5s ease-in-out 2.5s infinite;
@@ -90,6 +95,7 @@
 }
 .call .ring {
   border: 2px solid var(--copper);
+  box-shadow: 0 0 0 1px rgba(243, 233, 220, 0.5);
 }
 .wa .ring {
   border: 2px solid #25d366;
@@ -126,6 +132,12 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s, translate 0.25s var(--ease);
+}
+/* the call button is on the left, so its label opens to the right */
+.call .tip {
+  right: auto;
+  left: calc(100% + 12px);
+  translate: -6px -50%;
 }
 .fab:hover .tip,
 .fab:focus-visible .tip {
