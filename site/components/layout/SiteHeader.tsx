@@ -62,22 +62,67 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      <div className={`${styles.drawer} ${open ? styles.drawerOpen : ""}`} aria-hidden={!open}>
-        <nav aria-label="Mobile">
-          {[...NAV, { href: "/book", label: "Book a Table" }].map((n, i) => (
-            <Link key={n.href} href={n.href} style={{ transitionDelay: open ? `${0.08 + i * 0.05}s` : "0s" }} tabIndex={open ? 0 : -1}>
-              <span className={styles.num}>0{i + 1}</span>
-              {n.label}
-            </Link>
-          ))}
-        </nav>
+      {/* Mobile drawer: textured mahogany sheet in the site's own style (eyebrow, printed button, stamp) */}
+      <div className={`textured ${styles.drawer} ${open ? styles.drawerOpen : ""}`} aria-hidden={!open}>
+        <span className={styles.drawerMark} aria-hidden="true">
+          Nell
+        </span>
+        <div className={styles.drawerTop}>
+          <span className="eyebrow">Menu</span>
+          <nav aria-label="Mobile">
+            {NAV.map((n, i) => (
+              <Link
+                key={n.href}
+                href={n.href}
+                className={isActive(n.href) ? styles.drawerOn : undefined}
+                aria-current={isActive(n.href) ? "page" : undefined}
+                style={{ transitionDelay: open ? `${0.08 + i * 0.05}s` : "0s" }}
+                tabIndex={open ? 0 : -1}
+              >
+                <span className={styles.num}>0{i + 1}</span>
+                <span className={styles.label}>{n.label}</span>
+                <Icon name="arrow" className={styles.go} />
+              </Link>
+            ))}
+          </nav>
+          <Link
+            href="/book"
+            className={`btn ${styles.drawerBook}`}
+            aria-current={isActive("/book") ? "page" : undefined}
+            style={{ transitionDelay: open ? "0.4s" : "0s" }}
+            tabIndex={open ? 0 : -1}
+          >
+            <Icon name="calendar" />
+            <span>Book a Table</span>
+          </Link>
+        </div>
         <div className={styles.drawerFoot}>
-          <a href={SITE.phoneHref} tabIndex={open ? 0 : -1}>
-            <Icon name="phone" /> {SITE.phone}
-          </a>
-          <span>
-            <Icon name="clock" /> {SITE.hours}
-          </span>
+          <div className={styles.footInfo}>
+            <a href={SITE.phoneHref} tabIndex={open ? 0 : -1}>
+              <Icon name="phone" /> {SITE.phone}
+            </a>
+            <span>
+              <Icon name="clock" /> {SITE.hours}
+            </span>
+            <div className={styles.socials}>
+              <a href={SITE.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" tabIndex={open ? 0 : -1}>
+                <Icon name="instagram" />
+              </a>
+              <a href={SITE.social.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok" tabIndex={open ? 0 : -1}>
+                <Icon name="tiktok" />
+              </a>
+              <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" tabIndex={open ? 0 : -1}>
+                <Icon name="whatsapp" />
+              </a>
+            </div>
+          </div>
+          <div className={`stamp ${styles.drawerStamp}`} aria-hidden="true">
+            <span>
+              <small>Est.</small>
+              <strong>{SITE.since}</strong>
+              <small>Dubai Marina</small>
+            </span>
+          </div>
         </div>
       </div>
     </header>

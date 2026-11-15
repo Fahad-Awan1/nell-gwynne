@@ -107,7 +107,10 @@
   top: 0;
   z-index: -1;
   background: var(--mahogany);
-  padding: calc(var(--header-h) + 30px) var(--gutter) 40px;
+  isolation: isolate;
+  overflow: hidden;
+  padding: calc(var(--header-h) + 26px) var(--gutter) 32px;
+  gap: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -127,10 +130,10 @@
 }
 .drawer nav a {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 16px;
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(137, 89, 54, 0.4);
+  padding: 13px 0;
+  border-bottom: 1px dashed rgba(137, 89, 54, 0.55);
   font-family: var(--ff-display);
   font-size: clamp(1.6rem, 7vw, 2.4rem);
   text-transform: uppercase;
@@ -144,18 +147,113 @@
   transform: none;
 }
 .num {
+  flex: none;
   font-family: var(--ff-body);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--copper);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: #c79a72;
 }
-.drawerFoot {
+.label {
+  flex: 1;
+  min-width: 0;
+}
+.go {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--copper);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s, transform 0.3s var(--ease);
+}
+.drawer nav a:hover .go,
+.drawerOn .go {
+  opacity: 1;
+  transform: none;
+}
+/* current page: copper, with the brand diamond */
+.drawerOn {
+  color: #d9a679;
+}
+.drawerOn .num::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 8px;
+  background: var(--copper);
+  transform: rotate(45deg) translateY(-2px);
+}
+.drawerTop :global(.eyebrow) {
+  margin-bottom: 14px;
+}
+.drawerBook {
+  margin-top: 26px;
+  width: 100%;
+  justify-content: center;
+}
+.drawerMark {
+  position: absolute;
+  right: -6%;
+  bottom: 14%;
+  z-index: -1;
+  pointer-events: none;
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: 46vw;
+  line-height: 0.8;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(243, 233, 220, 0.08);
+  rotate: -8deg;
+}
+.footInfo {
   display: grid;
   gap: 12px;
+}
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--copper);
+  color: var(--copper);
+  transition: background 0.25s, color 0.25s;
+}
+.socials a:hover {
+  background: var(--copper);
+  color: var(--parchment);
+}
+.drawerStamp.drawerStamp {
+  flex: none;
+  width: 104px;
+  rotate: -10deg;
+}
+.drawerStamp :global(strong) {
+  font-size: 1.7rem;
+}
+.drawerStamp :global(small) {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  margin-top: 3px;
+}
+.drawerFoot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
   color: rgba(243, 233, 220, 0.8);
   font-size: 15px;
 }
-.drawerFoot > * {
+.footInfo > a,
+.footInfo > span {
   display: flex;
   align-items: center;
   gap: 10px;
