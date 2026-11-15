@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
+import ContactWidgets from "@/components/layout/ContactWidgets";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -99,6 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        <ContactWidgets />
         <div className="grain" aria-hidden="true" />
       </body>
     </html>

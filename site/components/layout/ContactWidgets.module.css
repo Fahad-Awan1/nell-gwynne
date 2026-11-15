@@ -1,0 +1,176 @@
+.dock {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 60;
+  display: grid;
+  gap: 14px;
+  pointer-events: none;
+}
+.fab {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  pointer-events: auto;
+  opacity: 0;
+  transform: scale(0.4) translateY(20px);
+  animation: popIn 0.6s var(--ease) forwards;
+  transition: translate 0.25s var(--ease), box-shadow 0.25s;
+}
+.fab:hover {
+  translate: 0 -3px;
+}
+.wa {
+  animation-delay: 1.2s;
+}
+.call {
+  animation-delay: 1.35s;
+}
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* brand call button: pub black, double copper ring like the site's stamps */
+.call {
+  background: var(--black);
+  color: var(--parchment);
+  box-shadow: 0 0 0 2px var(--copper), 0 0 0 5px var(--black), 0 0 0 6px rgba(137, 89, 54, 0.8), 0 12px 24px rgba(6, 1, 1, 0.45);
+}
+.phoneIcon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linejoin: round;
+  transform-origin: 50% 50%;
+  animation: ring 5s ease-in-out 2.5s infinite;
+}
+@keyframes ring {
+  0%, 82%, 100% {
+    transform: rotate(0);
+  }
+  85% {
+    transform: rotate(-14deg);
+  }
+  88% {
+    transform: rotate(12deg);
+  }
+  91% {
+    transform: rotate(-10deg);
+  }
+  94% {
+    transform: rotate(6deg);
+  }
+}
+
+/* WhatsApp keeps its own brand colour and logo */
+.wa {
+  background: #25d366;
+  box-shadow: 0 10px 22px rgba(6, 1, 1, 0.4);
+}
+.waIcon {
+  width: 30px;
+  height: 30px;
+}
+
+/* soft pulse ring */
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulse 2.8s ease-out 2s infinite;
+}
+.call .ring {
+  border: 2px solid var(--copper);
+}
+.wa .ring {
+  border: 2px solid #25d366;
+  animation-delay: 3.4s;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  70%, 100% {
+    transform: scale(1.55);
+    opacity: 0;
+  }
+}
+
+/* label on hover (desktop) */
+.tip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  translate: 6px -50%;
+  padding: 7px 12px;
+  white-space: nowrap;
+  background: var(--black);
+  color: var(--parchment);
+  border: 1px solid var(--copper);
+  box-shadow: 3px 3px 0 rgba(137, 89, 54, 0.55);
+  font-family: var(--ff-body);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, translate 0.25s var(--ease);
+}
+.fab:hover .tip,
+.fab:focus-visible .tip {
+  opacity: 1;
+  translate: 0 -50%;
+}
+
+@media (max-width: 760px) {
+  .dock {
+    gap: 12px;
+  }
+  .fab {
+    width: 50px;
+    height: 50px;
+  }
+  .waIcon {
+    width: 27px;
+    height: 27px;
+  }
+  .phoneIcon {
+    width: 22px;
+    height: 22px;
+  }
+  .tip {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .ring,
+  .phoneIcon {
+    animation: none;
+  }
+  .ring {
+    display: none;
+  }
+}
+
+@media print {
+  .dock {
+    display: none;
+  }
+}

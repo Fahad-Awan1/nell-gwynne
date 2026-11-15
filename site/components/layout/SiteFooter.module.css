@@ -159,3 +159,14 @@
     padding-block: 20px 26px;
   }
 }
+
+/* keep the last row clear of the floating Call / WhatsApp buttons */
+.bar.bar {
+  padding-right: 96px;
+}
+@media (max-width: 760px) {
+  .bar.bar {
+    padding-right: 0;
+    padding-bottom: 140px;
+  }
+}
