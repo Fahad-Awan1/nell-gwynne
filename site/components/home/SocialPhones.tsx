@@ -185,7 +185,15 @@ export default function SocialPhones() {
                     )}
                     {p.video && <span className={s.reelTag}>Reel</span>}
                   </span>
-                  <span className={s.caption}>{p.caption}</span>
+                  <span className={s.caption}>
+                    <span className={s.actions} aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z" /></svg>
+                      <svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.6 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z" /></svg>
+                      <svg viewBox="0 0 24 24"><path d="m21 4-9.5 9.5M21 4l-6 16-3.5-6.5L5 10l16-6Z" /></svg>
+                    </span>
+                    {p.caption}
+                  </span>
+                  <span className={s.homeBar} aria-hidden="true" />
                 </a>
               );
             })}

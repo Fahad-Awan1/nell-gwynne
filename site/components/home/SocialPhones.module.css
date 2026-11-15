@@ -17,7 +17,7 @@
   --step: 62%;
   --side: 0.84;
   position: relative;
-  height: 624px;
+  height: 560px;
   perspective: 1400px;
   transform-style: preserve-3d;
 }
@@ -27,7 +27,7 @@
   top: 0;
   width: 258px;
   margin-left: -129px;
-  height: auto;
+  height: 540px;
   border-radius: 38px;
   background: var(--black);
   padding: 12px;
@@ -49,6 +49,20 @@
   background: var(--black);
   z-index: 3;
 }
+/* the island's camera lens */
+.notch::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  translate: 0 -50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #3a2a24 0 30%, #0d0807 60%);
+  box-shadow: 0 0 0 1px rgba(137, 89, 54, 0.35);
+}
+/* app header in mahogany (dark mode), so the black Dynamic Island notch still shows */
 .bar {
   position: relative;
   z-index: 2;
@@ -56,7 +70,7 @@
   align-items: center;
   gap: 8px;
   padding: 44px 12px 10px;
-  background: var(--black);
+  background: var(--mahogany);
   border-radius: 28px 28px 0 0;
   font-size: 12px;
   font-weight: 700;
@@ -72,8 +86,8 @@
   font-size: 8px;
 }
 .screen {
-  flex: none;
-  aspect-ratio: 9 / 16;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
   background: var(--mahogany);
 }
@@ -88,10 +102,11 @@
   padding: 12px 12px 18px;
   font-size: 12.5px;
   line-height: 1.45;
-  color: rgba(243, 233, 220, 0.82);
-  background: var(--black);
+  color: rgba(243, 233, 220, 0.88);
+  background: var(--mahogany);
   border-radius: 0 0 28px 28px;
-  min-height: 92px;
+  min-height: 74px;
+  padding-bottom: 22px; /* room for the home bar */
 }
 .front {
   box-shadow: 0 0 0 2px var(--copper), 0 44px 80px rgba(6, 1, 1, 0.55);
@@ -159,11 +174,12 @@
 }
 @media (max-width: 520px) {
   .phones {
-    height: 520px;
+    height: 470px;
   }
   .phone {
     width: 216px;
     margin-left: -108px;
+    height: 450px;
   }
 }
 
@@ -173,11 +189,12 @@
     gap: 30px;
   }
   .phones {
-    height: 520px;
+    height: 440px;
   }
   .phone {
     width: 206px;
     margin-left: -103px;
+    height: 424px;
   }
 }
 
@@ -277,4 +294,68 @@
   .dots {
     gap: 8px;
   }
+}
+
+@media (max-width: 760px) {
+  .notch {
+    top: 16px;
+    width: 66px;
+    height: 19px;
+  }
+  .notch::after {
+    right: 9px;
+    width: 6px;
+    height: 6px;
+  }
+  .bar {
+    padding-top: 40px;
+  }
+}
+
+/* Instagram-style like / comment / share row above the caption */
+.actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.actions svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--parchment);
+  stroke-width: 1.7;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+/* iPhone home indicator */
+.homeBar {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  translate: -50% 0;
+  z-index: 3;
+  width: 34%;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(243, 233, 220, 0.85);
+}
+.notch {
+  box-shadow: 0 0 0 1px rgba(243, 233, 220, 0.08);
+}
+@media (max-width: 760px) {
+  .actions {
+    display: none;
+  }
+  .homeBar {
+    bottom: 16px;
+    height: 3px;
+  }
+}
+.phone:not(.front) .actions {
+  opacity: 0;
+}
+/* letterbox in the same mahogany as the app bars, so header, media and caption read as one screen */
+.screen img,
+.screen video {
+  background: var(--mahogany);
 }
