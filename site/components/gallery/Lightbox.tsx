@@ -77,7 +77,7 @@ export default function Lightbox({
           </button>
           <div className={`${s.media} ${item.h > item.w ? s.tall : ""}`}>
             {item.type === "video" ? (
-              <video src={item.src} poster={item.poster} controls autoPlay playsInline className={s.video} aria-label={item.title} />
+              <video src={item.src} poster={item.poster} width={item.w} height={item.h} controls autoPlay playsInline preload="auto" className={s.video} aria-label={item.title} />
             ) : (
               <Image src={item.src} alt={item.alt} width={item.w} height={item.h} sizes="(max-width: 760px) 96vw, 80vw" className={s.img} preload />
             )}
