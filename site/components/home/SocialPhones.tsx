@@ -64,6 +64,11 @@ export default function SocialPhones() {
   }, [onScreen]);
   const frontIsReel = Boolean(SOCIAL_POSTS[active].video);
 
+  // previous / next post (tap a side phone, use the arrows, or swipe)
+  const go = (step: number) => setActive((a) => (a + step + n) % n);
+  const touchX = useRef<number | null>(null);
+  const swiped = useRef(false);
+
   // position of each phone relative to the active one: -2..2
   const offset = (i: number) => {
     let d = i - active;
@@ -107,7 +112,22 @@ export default function SocialPhones() {
           onFocus={() => setPaused(true)}
           onBlur={() => setPaused(false)}
         >
-          <div className={s.phones}>
+          <div
+            className={s.phones}
+            onTouchStart={(e) => {
+              touchX.current = e.touches[0].clientX;
+              swiped.current = false;
+            }}
+            onTouchEnd={(e) => {
+              if (touchX.current === null) return;
+              const dx = e.changedTouches[0].clientX - touchX.current;
+              touchX.current = null;
+              if (Math.abs(dx) > 40) {
+                swiped.current = true; // a swipe must not also open Instagram
+                go(dx < 0 ? 1 : -1);
+              }
+            }}
+          >
             {SOCIAL_POSTS.map((p, i) => {
               const d = offset(i);
               const hidden = Math.abs(d) > 1;
@@ -129,6 +149,11 @@ export default function SocialPhones() {
                   tabIndex={hidden ? -1 : 0}
                   aria-label={`Instagram post: ${p.caption}`}
                   onClick={(e) => {
+                    if (swiped.current) {
+                      e.preventDefault();
+                      swiped.current = false;
+                      return;
+                    }
                     if (d !== 0) {
                       e.preventDefault();
                       setActive(i);
@@ -164,13 +189,22 @@ export default function SocialPhones() {
                 </a>
               );
             })}
+            {/* the side phones are tilted back in 3D, so taps on them are caught by these zones instead */}
+            <button type="button" className={`${s.zone} ${s.zonePrev}`} aria-label="Previous post" onClick={() => go(-1)} />
+            <button type="button" className={`${s.zone} ${s.zoneNext}`} aria-label="Next post" onClick={() => go(1)} />
           </div>
           <div className={s.controls}>
+            <button type="button" className={s.arrow} aria-label="Previous post" onClick={() => go(-1)}>
+              <Icon name="arrowLeft" />
+            </button>
             <div className={s.dots} role="tablist" aria-label="Choose post">
               {SOCIAL_POSTS.map((p, i) => (
                 <button key={p.image} role="tab" aria-selected={i === active} aria-label={`Post ${i + 1}`} className={i === active ? s.dotOn : ""} onClick={() => setActive(i)} />
               ))}
             </div>
+            <button type="button" className={s.arrow} aria-label="Next post" onClick={() => go(1)}>
+              <Icon name="arrow" />
+            </button>
             <button
               type="button"
               className={`${s.sound} ${frontIsReel ? "" : s.soundOff}`}

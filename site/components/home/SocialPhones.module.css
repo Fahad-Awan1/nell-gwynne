@@ -220,3 +220,61 @@
     --side: 0.78;
   }
 }
+
+/* tap zones over the two side phones (left = previous, right = next) */
+.zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 20;
+  width: calc(50% - var(--pw) / 2);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.zonePrev {
+  left: 0;
+}
+.zoneNext {
+  right: 0;
+}
+.phones {
+  --pw: 258px;
+}
+@media (max-width: 760px) {
+  .phones {
+    --pw: 206px;
+  }
+}
+
+/* previous / next arrows beside the dots */
+.arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--mahogany);
+  background: transparent;
+  color: var(--mahogany);
+  transition: background 0.25s, color 0.25s;
+}
+.arrow:hover {
+  background: var(--mahogany);
+  color: var(--parchment);
+}
+.arrow svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 760px) {
+  .controls {
+    gap: 12px 12px;
+  }
+  .dots {
+    gap: 8px;
+  }
+}
