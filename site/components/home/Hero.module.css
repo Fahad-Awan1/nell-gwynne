@@ -290,8 +290,25 @@
   right: 2%;
 }
 @media (max-width: 760px) {
+  /* phones/small tablets: the portrait sits in the normal flow, so the area is exactly as tall as the
+     painting, and the note follows right under it (clear of the buttons and the painting) */
+  .stageWrap.stageWrap,
+  .float.float {
+    height: auto;
+    min-height: 0;
+  }
+  .main.main {
+    position: relative;
+    left: auto;
+    translate: none;
+    width: min(66%, 320px);
+    margin: 14px auto 0;
+  }
   .noteA.noteA {
-    top: -40px;
-    right: 0;
+    position: static;
+    display: block;
+    width: max-content;
+    margin: 18px 4% 0 auto;
+    rotate: -4deg;
   }
 }
