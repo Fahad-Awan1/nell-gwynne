@@ -126,7 +126,7 @@
   font-size: 11px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(243, 233, 220, 0.55);
+  color: rgba(243, 233, 220, 0.8);
 }
 .scroll i {
   position: relative;
@@ -266,4 +266,32 @@
 .main :global(.print__cap) {
   right: auto;
   padding-right: 18px;
+}
+
+/* the hero is now a single framed portrait of Nell Gwynne (no second photo), so its caption always shows */
+.main.main {
+  left: 50%;
+  translate: -50% 0;
+  width: min(420px, 70%);
+  aspect-ratio: 493 / 621;
+}
+.main :global(.print__cap) {
+  display: block;
+  right: 0;
+}
+@media (max-width: 760px) {
+  .main.main {
+    width: 66%;
+  }
+}
+/* the portrait is wider than the old photo: lift the note above it so it never sits on the painting */
+.noteA.noteA {
+  top: -58px;
+  right: 2%;
+}
+@media (max-width: 760px) {
+  .noteA.noteA {
+    top: -40px;
+    right: 0;
+  }
 }

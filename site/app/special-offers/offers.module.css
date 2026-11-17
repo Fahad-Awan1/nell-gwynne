@@ -139,7 +139,7 @@
 .eventBody p {
   margin: 0;
   font-size: 14.5px;
-  color: rgba(6, 1, 1, 0.72);
+  color: rgba(6, 1, 1, 0.9);
 }
 .eventDate {
   display: inline-flex;
@@ -178,7 +178,7 @@
 }
 .packages small {
   font-size: 12.5px;
-  color: rgba(6, 1, 1, 0.6);
+  color: rgba(6, 1, 1, 0.85);
 }
 .packages em {
   font-style: normal;
@@ -422,5 +422,5 @@
 .eventBody .eventNote {
   font-size: 12.5px;
   font-style: italic;
-  color: rgba(6, 1, 1, 0.6);
+  color: rgba(6, 1, 1, 0.85);
 }

@@ -128,7 +128,7 @@ export default function MenuShowcase() {
             <span className={s.clipKicker}>Today at the pub</span>
             <span className={s.clipHead}>Roast, Pie &amp; a Pint</span>
             <span className={s.clipRule} />
-            <span className={s.clipBody}>Kitchen open from 9am · Breakfast at weekends</span>
+            <span className={s.clipBody}>Open from 8am · Breakfast every day</span>
           </div>
           <figure className={`print print--deckle ${s.pA}`} data-reveal="print" data-rot="6">
             <Image src="/images/brand/pool-and-food.webp" alt="Pub food served by the pool table at Nell Gwynne" width={600} height={400} sizes="(max-width: 760px) 60vw, 380px" />

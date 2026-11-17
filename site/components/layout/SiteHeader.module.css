@@ -50,7 +50,7 @@
   font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(243, 233, 220, 0.86);
+  color: rgba(243, 233, 220, 0.95);
   transition: color 0.25s;
 }
 .item a::after {
@@ -249,7 +249,7 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 16px;
-  color: rgba(243, 233, 220, 0.8);
+  color: rgba(243, 233, 220, 0.95);
   font-size: 15px;
 }
 .footInfo > a,

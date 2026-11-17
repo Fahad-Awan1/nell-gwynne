@@ -35,7 +35,7 @@ export default function FaqPage() {
         <div className={`wrap ${s.faq}`}>
           <div style={{ position: "relative" }}>
             <p className="lede" data-reveal="up">
-              Still stuck? Our team is around from 9am to 3am every day.
+              Still stuck? Our team is around from 8am to 3am every day.
             </p>
             <div className="btns" data-reveal="up" data-delay="0.1">
               <Btn href="/support" variant="dark" icon="arrow">

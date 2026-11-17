@@ -15,8 +15,8 @@
   --copper-rgb: 137, 89, 54;
   --parchment-rgb: 243, 233, 220;
 
-  --ink-soft: rgba(var(--parchment-rgb), 0.72);
-  --ink-mute: rgba(var(--parchment-rgb), 0.5);
+  --ink-soft: rgba(var(--parchment-rgb), 0.92);
+  --ink-mute: rgba(var(--parchment-rgb), 0.78);
   --line: rgba(var(--copper-rgb), 0.45);
   /* Copper for small text. On dark grounds plain Copper Ale is too dim to read, so it is mixed
      with Parchment; on paper it is deepened with Mahogany. Both are mixes of brand colours. */
@@ -153,8 +153,8 @@ label {
 .section--paper {
   background: var(--parchment);
   color: var(--black);
-  --ink-soft: rgba(var(--black-rgb), 0.74);
-  --ink-mute: rgba(var(--black-rgb), 0.52);
+  --ink-soft: rgba(var(--black-rgb), 0.9);
+  --ink-mute: rgba(var(--black-rgb), 0.75);
   --line: rgba(var(--mahogany-rgb), 0.28);
   --copper-ink: color-mix(in srgb, var(--copper) 72%, var(--mahogany));
 }

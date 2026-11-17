@@ -73,7 +73,7 @@
 .small {
   margin: 0;
   font-size: 13px;
-  color: rgba(6, 1, 1, 0.6);
+  color: rgba(6, 1, 1, 0.85);
   max-width: 32ch;
 }
 @media (max-width: 560px) {

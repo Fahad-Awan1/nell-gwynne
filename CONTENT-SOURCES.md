@@ -116,6 +116,18 @@ The client supplied this video: 6:09 long, 1080×1920. It contains 59 slides and
 
 **Not shown: the Christmas Party Packages 2026 poster.** The poster in the source video is cut off on its right edge ("…CHRISTMAS PART", "…SPARKLING WELCOM"), and this is true in every frame. Its file is kept (`posters/christmas-parties.webp`) and its package details are written out as text on the Special Offers card, which uses a venue photo instead. Send the original poster file and it can go back up.
 
+## B3. Client change list (2026-11-17)
+
+- **Booking.** The only booking link is now https://playatyourtable.com/book/nell-gwynne. SevenRooms is removed everywhere, including the legal pages.
+- **Opening hours.** The pub is open daily 8am to 3am. This is updated everywhere, including the Google opening-hours data.
+- **Home hero.** The two floating photos are replaced by a portrait of Nell Gwynne (Studio of Sir Peter Lely, c. 1675, National Portrait Gallery; public domain). The image was supplied by the client at 493×621. A higher-resolution copy is on Wikimedia Commons: "Studio of Lely - Unknown woman, formerly known as Nell Gwyn - NPG.jpg".
+- **Menu page.**
+  - The 11 "Offers" items are removed; they remain on the Special Offers page.
+  - The "Hungry Yet?" band is removed.
+- **Gallery page.** The closing band is now "See You at the Bar", so "Pull Up a Stool" is not repeated.
+- **Text.** Faded text is brighter across the site.
+- **Pending.** New artwork for Cherry Bomb, Jack the Hat and Monday Night Live Quiz, to be supplied by the client.
+
 ## C. New additions (please review)
 
 **Headings and short decorative lines**

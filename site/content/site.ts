@@ -13,7 +13,7 @@ export const SITE = {
   phoneHref: "tel:+971524119313",
   whatsapp:
     "https://api.whatsapp.com/send?phone=971524119313&text=Hi%20Nell%20Gwynne%2C%20I%27d%20like%20to%20book%20a%20table.",
-  booking: "https://www.sevenrooms.com/explore/nellgwynne/reservations/create/search",
+  booking: "https://playatyourtable.com/book/nell-gwynne",
   address: {
     line1: "Marina Byblos Hotel",
     line2: "Al Hubob St, Dubai Marina",
@@ -23,8 +23,8 @@ export const SITE = {
   mapEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.904053834656!2d55.135160000000006!3d25.071240899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f1353801db135%3A0xc6049630a21cbb1d!2sNell%20Gwynne%20English%20Sports%20Bar!5e0!3m2!1sen!2sae!4v1747845108713!5m2!1sen!2sae",
   geo: { lat: 25.0712409, lng: 55.13516 },
-  hours: "Daily · 9 AM – 3 AM",
-  hoursShort: "9am – 3am",
+  hours: "Daily · 8 AM – 3 AM",
+  hoursShort: "8am – 3am",
   social: {
     instagram: "https://www.instagram.com/nellgwynnemarina/",
     tiktok: "https://www.tiktok.com/@nell.gwynne",
@@ -379,8 +379,8 @@ export const TIMELINE = [
 ];
 
 export const FAQ = [
-  { q: "Do I need to book a table?", a: "Walk-ins are always welcome, but for big matches, quiz nights and weekends we strongly recommend booking. Tables go fast. Book online through SevenRooms or message us on WhatsApp." },
-  { q: "What are your opening hours?", a: "We’re open every day from 9am to 3am. The kitchen serves breakfast from 9am on weekends." },
+  { q: "Do I need to book a table?", a: "Walk-ins are always welcome, but for big matches, quiz nights and weekends we strongly recommend booking. Tables go fast. Book online in a few taps, or message us on WhatsApp." },
+  { q: "What are your opening hours?", a: "We’re open every day from 8am to 3am. Breakfast is served every day: from 8am Friday to Sunday and from 11am Monday to Thursday." },
   { q: "Where exactly are you?", a: "Inside the Marina Byblos Hotel on Al Hubob St, Dubai Marina. During the hotel lobby renovation we have a temporary entrance. Follow the signs, or call us and we’ll guide you in." },
   { q: "Which sports do you show?", a: "Premier League, Champions League, EFL, La Liga, Serie A, international and club rugby, F1, UFC and boxing. If it’s live, ask us and we’ll put it on." },
   { q: "Can you show a specific game?", a: "Usually, yes. Message us ahead of time with the fixture and we’ll do our best to give it a screen, with sound where possible." },

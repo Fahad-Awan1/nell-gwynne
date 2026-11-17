@@ -55,7 +55,7 @@ export default function WeekPlanner() {
         <div className={s.dayHead}>
           <h3 className={s.dayName}>{d.day}</h3>
           <span className={s.open}>
-            <Icon name="clock" /> Open 9am – 3am
+            <Icon name="clock" /> Open 8am – 3am
           </span>
         </div>
         <ul className={s.rows}>

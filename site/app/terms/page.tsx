@@ -17,7 +17,7 @@ export default function TermsPage() {
         </p>
         <h2>Bookings</h2>
         <ul>
-          <li>Online bookings are made through SevenRooms and are subject to availability and SevenRooms’ terms.</li>
+          <li>Online bookings are made through Play At Your Table and are subject to availability and Play At Your Table’s terms.</li>
           <li>Tables for major sporting events may be held for a limited time after the booked arrival time.</li>
           <li>Please let us know as early as possible if you need to cancel or change a booking.</li>
           <li>Group, festive and package bookings may require pre-payment or a deposit, which we will confirm in advance.</li>

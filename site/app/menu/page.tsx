@@ -12,7 +12,7 @@ import s from "./menu.module.css";
 export const metadata: Metadata = {
   title: "Menu",
   description:
-    "The Nell Gwynne menu: Full English breakfast, Sunday roast, pies, burgers, wings, cocktails and weekly offers. Proper British pub food in Dubai Marina.",
+    "The Nell Gwynne menu: Full English breakfast, Sunday roast, pies, burgers, wings and cocktails. Proper British pub food in Dubai Marina.",
 };
 
 export default function MenuPage() {
@@ -84,7 +84,6 @@ export default function MenuPage() {
         </ul>
       </PosterFeature>
 
-      <ClosingBand title={["Hungry Yet?"]} sub="Kitchen open daily from 9am" />
       <MotionRoot />
     </>
   );

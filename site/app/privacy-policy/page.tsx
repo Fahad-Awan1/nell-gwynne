@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         <h2>What we collect</h2>
         <ul>
           <li>
-            <strong>Booking and enquiry details</strong>: when you book through SevenRooms or message us on WhatsApp, those services
+            <strong>Booking and enquiry details</strong>: when you book through Play At Your Table or message us on WhatsApp, those services
             process your name, contact details and booking information under their own privacy policies.
           </li>
           <li>
@@ -40,11 +40,11 @@ export default function PrivacyPage() {
         <h2>Cookies</h2>
         <p>
           We use essential cookies to make the site work and, where enabled, analytics cookies to measure traffic. Embedded content
-          (Google Maps, Instagram, SevenRooms) may set its own cookies. You can block or delete cookies in your browser settings.
+          (Google Maps, Instagram, Play At Your Table) may set its own cookies. You can block or delete cookies in your browser settings.
         </p>
         <h2>Third-party services</h2>
         <p>
-          Links to SevenRooms, WhatsApp, Instagram, TikTok, Facebook and Google Maps take you to services with their own privacy
+          Links to Play At Your Table, WhatsApp, Instagram, TikTok, Facebook and Google Maps take you to services with their own privacy
           policies. Please review them before sharing information.
         </p>
         <h2>Your rights</h2>

@@ -58,7 +58,7 @@
 }
 .clipBody {
   font-size: 13.5px;
-  color: rgba(6, 1, 1, 0.75);
+  color: rgba(6, 1, 1, 0.9);
 }
 .pA {
   position: absolute;
@@ -193,7 +193,7 @@
   font-size: 11.5px;
   letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: rgba(243, 233, 220, 0.5);
+  color: rgba(243, 233, 220, 0.8);
 }
 
 @media (max-width: 980px) {

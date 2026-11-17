@@ -32,7 +32,7 @@
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: rgba(243, 233, 220, 0.6);
+  color: rgba(243, 233, 220, 0.85);
 }
 .crumb a:hover {
   color: var(--parchment);
@@ -126,7 +126,7 @@
 }
 .sheet p,
 .sheet li {
-  color: rgba(6, 1, 1, 0.8);
+  color: rgba(6, 1, 1, 0.95);
   font-size: 16px;
 }
 .sheet ul {

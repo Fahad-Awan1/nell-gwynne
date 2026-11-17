@@ -25,7 +25,7 @@ export default function GalleryPage() {
         ]}
       />
       <GalleryView />
-      <ClosingBand tone="black" />
+      <ClosingBand tone="black" title={["See You at the Bar"]} sub="Your table is waiting" />
       <MotionRoot />
     </>
   );

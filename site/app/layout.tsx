@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s | Nell Gwynne Dubai Marina",
   },
   description:
-    "Nell Gwynne is Dubai Marina’s authentic English sports pub since 2011. Live Premier League, rugby and F1, proper pints, hearty British food and offers every night. Open daily 9am–3am.",
+    "Nell Gwynne is Dubai Marina’s authentic English sports pub since 2011. Live Premier League, rugby and F1, proper pints, hearty British food and offers every night. Open daily 8am–3am.",
   openGraph: {
     type: "website",
     siteName: SITE.fullName,
@@ -73,7 +73,7 @@ const jsonLd = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "09:00",
+      opens: "08:00",
       closes: "03:00",
     },
   ],

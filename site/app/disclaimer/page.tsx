@@ -29,7 +29,7 @@ export default function DisclaimerPage() {
         </p>
         <h2>External links</h2>
         <p>
-          This website links to third-party services (SevenRooms, WhatsApp, Instagram, TikTok, Facebook, Google Maps). We are not
+          This website links to third-party services (Play At Your Table, WhatsApp, Instagram, TikTok, Facebook, Google Maps). We are not
           responsible for their content or availability.
         </p>
         <h2>Drink responsibly</h2>

@@ -11,7 +11,7 @@ import s from "./book.module.css";
 export const metadata: Metadata = {
   title: "Book a Table",
   description:
-    "Book a table at Nell Gwynne, Marina Byblos Hotel, Dubai Marina. Reserve online with SevenRooms, or message us on WhatsApp on +971 52 411 9313. Open daily 9am–3am.",
+    "Book a table at Nell Gwynne, Marina Byblos Hotel, Dubai Marina. Reserve online, or message us on WhatsApp on +971 52 411 9313. Open daily 8am–3am.",
 };
 
 export default function BookPage() {
@@ -22,7 +22,7 @@ export default function BookPage() {
         eyebrow="Book a Table"
         title={["Save Me", "a Seat"]}
         sub="Big games fill up fast"
-        lede="Reserve instantly online with SevenRooms, or send us your details on WhatsApp and we’ll sort the rest, from the best screen in the house to a table for the whole squad."
+        lede="Reserve instantly online, or send us your details on WhatsApp and we’ll sort the rest, from the best screen in the house to a table for the whole squad."
         mode="booking"
         formTitle="Request a table on WhatsApp"
         primary={

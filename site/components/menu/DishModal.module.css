@@ -145,7 +145,7 @@
   margin: 0;
   font-size: 16.5px;
   line-height: 1.65;
-  color: rgba(6, 1, 1, 0.8);
+  color: rgba(6, 1, 1, 0.95);
 }
 .facts {
   margin: 4px 0 0;
@@ -175,7 +175,7 @@
   margin: 0;
   font-size: 13px;
   font-style: italic;
-  color: rgba(6, 1, 1, 0.6);
+  color: rgba(6, 1, 1, 0.85);
 }
 .actions {
   margin-top: 6px;

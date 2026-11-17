@@ -90,18 +90,14 @@ export default function Hero() {
               <figure className={`print print--deckle ${styles.main}`} data-h="print">
                 <span className="tape" style={{ top: -12, left: "38%", rotate: "-3deg" }} />
                 <Image
-                  src="/images/site/pub-interior.webp"
-                  alt="Guests watching football on the big screens at Nell Gwynne"
-                  width={760}
-                  height={1024}
+                  src="/images/brand/nell-gwynne-portrait.webp"
+                  alt="Portrait of Nell Gwynne, the Restoration actress our pub is named after"
+                  width={493}
+                  height={621}
                   preload
-                  sizes="(max-width: 760px) 80vw, 520px"
+                  sizes="(max-width: 760px) 70vw, 420px"
                 />
-                <figcaption className="print__cap">Match night</figcaption>
-              </figure>
-              <figure className={`print ${styles.second}`} data-h="print">
-                <Image src="/images/brand/pint-and-burger.webp" alt="A pint of lager and a burger raised at Nell Gwynne" width={519} height={519} sizes="260px" />
-                <figcaption className="print__cap">Pints &amp; grub</figcaption>
+                <figcaption className="print__cap">Nell Gwynne · 1650 – 1687</figcaption>
               </figure>
               <div className={`stamp ${styles.stamp}`} data-h="stamp">
                 <span>

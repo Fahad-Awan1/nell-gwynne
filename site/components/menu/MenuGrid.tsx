@@ -17,6 +17,9 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
 
 const CAT_LABEL: Record<string, string> = Object.fromEntries(menu.categories.map((c) => [c.id, c.label]));
+// Offers live on the Special Offers page, so the menu shows food and drink only.
+const ITEMS = menu.items.filter((i) => i.category !== "offers");
+const CATS = menu.categories.filter((c) => c.id !== "offers");
 
 /** Lower-case, strip accents and punctuation, so "shepherds" finds "Shepherd’s" and "jalapeno" finds "jalapeño". */
 function normalize(text: string) {
@@ -32,7 +35,7 @@ function normalize(text: string) {
 
 // Search text for every item, built once: name, description, category, tags and allergens.
 const HAYSTACK = new Map(
-  menu.items.map((i) => [i.slug, normalize([i.name, i.description, CAT_LABEL[i.category], ...i.tags, ...i.allergens].join(" "))]),
+  ITEMS.map((i) => [i.slug, normalize([i.name, i.description, CAT_LABEL[i.category], ...i.tags, ...i.allergens].join(" "))]),
 );
 
 /** Every word of the query must appear somewhere in the item ("pork ribs" finds "BBQ Pork Baby Back Ribs"). */
@@ -51,18 +54,18 @@ export default function MenuGrid() {
 
   const words = useMemo(() => (q ? q.split(" ") : []), [q]);
   const filtered = useMemo(
-    () => menu.items.filter((i) => (cat === "all" || i.category === cat) && (!words.length || matches(i, words))),
+    () => ITEMS.filter((i) => (cat === "all" || i.category === cat) && (!words.length || matches(i, words))),
     [cat, words],
   );
   // how many matches exist in other categories (offered when the current category has none)
   const elsewhere = useMemo(
-    () => (words.length && cat !== "all" ? menu.items.filter((i) => matches(i, words)).length : 0),
+    () => (words.length && cat !== "all" ? ITEMS.filter((i) => matches(i, words)).length : 0),
     [cat, words],
   );
 
   const groups = useMemo(() => {
-    if (cat !== "all" || q) return [{ id: cat, label: menu.categories.find((c) => c.id === cat)?.label ?? "Results", items: filtered }];
-    return menu.categories.map((c) => ({ ...c, items: filtered.filter((i) => i.category === c.id) })).filter((g) => g.items.length);
+    if (cat !== "all" || q) return [{ id: cat, label: CATS.find((c) => c.id === cat)?.label ?? "Results", items: filtered }];
+    return CATS.map((c) => ({ ...c, items: filtered.filter((i) => i.category === c.id) })).filter((g) => g.items.length);
   }, [cat, q, filtered]);
 
   // ----- dish detail popup -----
@@ -70,7 +73,7 @@ export default function MenuGrid() {
   // the popup steps through dishes in the order they are shown on screen
   const shown = useMemo(() => groups.flatMap((g) => g.items), [groups]);
   const openIndex = openSlug ? shown.findIndex((i) => i.slug === openSlug) : -1;
-  const openItem = openIndex >= 0 ? shown[openIndex] : openSlug ? (menu.items.find((i) => i.slug === openSlug) ?? null) : null;
+  const openItem = openIndex >= 0 ? shown[openIndex] : openSlug ? (ITEMS.find((i) => i.slug === openSlug) ?? null) : null;
 
   const openDish = useCallback((slug: string) => {
     setOpenSlug(slug);
@@ -93,7 +96,7 @@ export default function MenuGrid() {
   useEffect(() => {
     const fromHash = () => {
       const slug = decodeURIComponent(window.location.hash.slice(1));
-      if (!slug || !menu.items.some((i) => i.slug === slug)) return;
+      if (!slug || !ITEMS.some((i) => i.slug === slug)) return;
       requestAnimationFrame(() => {
         setOpenSlug(slug);
         document.getElementById(slug)?.scrollIntoView({ block: "center" });
@@ -148,14 +151,14 @@ export default function MenuGrid() {
     return () => ctx.revert();
   }, [cat, q]);
 
-  const count = (id: string) => (id === "all" ? menu.items.length : menu.items.filter((i) => i.category === id).length);
+  const count = (id: string) => (id === "all" ? ITEMS.length : ITEMS.filter((i) => i.category === id).length);
 
   return (
     <div className={s.root}>
       <div className={s.bar}>
         <div className={`wrap ${s.barInner}`}>
           <div className={s.chips} role="tablist" aria-label="Menu categories">
-            {[{ id: "all", label: "All" }, ...menu.categories].map((c) => (
+            {[{ id: "all", label: "All" }, ...CATS].map((c) => (
               <button
                 key={c.id}
                 role="tab"
